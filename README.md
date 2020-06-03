@@ -21,7 +21,7 @@
 - Clicking on a car shall take user to “more details” page which shall have more images and additional details pertaining to clicked car.
 ## Component Tree Diagram
 
-![alt text](https://github.com/Rekjal/proj-car-dealership/blob/master/src/img/Component_tree_diagram.png)
+![alt text](https://github.com/Rekjal/proj-car-dealership/blob/master/src/img/projReactWithNoSQL.png)
 
             
 ##### Date: **05/31/2020**
