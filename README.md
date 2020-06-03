@@ -1,73 +1,35 @@
-# # # # Refactoring of Tap Room Using React and Redux - Independent Project
+# Capstone Project: User Car Dealer Website (React with NoSQL)
 
-#### A React web application that represents a `Tap room Tracker` where a `Soda Fountain store` can track their kegs. Application lets store track the remaining amount in each Soda Keg & following are the main features of this application...
+#### A React web application that shall render a listing of cars up for sale along with image and details that are relevant to a car buyer (make, model, year, price, odometer reading, miles, detailed images etc.).
 
-- Render list/menu of all available kegs. For each keg, `Name`,  `Brand`,  `Price`  and  `Flavor`  are displayed.
 
--  User can submit a form to add a new keg to list.
+- Users are buyers in the market looking for more choices when it comes to buying cars (more choices than what a traditional non-online dealer would provide)
+- Allows car purchasing from the confines of one’s home by providing accurate details of the vehicle including accident history, condition and clear external and internal images
+- Website allows a car vendor to display his wares and complete transaction with interested parties (who are remotely located)
 
--  User can click on a keg to see its detail page.
+## Minimum Viable Product
+- Persist new car record in Firestore
+- Permit Update of existing record in Firestore
+- Permit Delete of existing record in Firestore
+- Real-time display of cars (data fetched from Firestore)
+- Use Flex to list cars
 
--  User can see how many pints are left in a keg. **PS:**  A keg is hardcoded to 15 pints for ease of use (so that one can demonstrate emptying of keg).
-
--  User can click a button next to a keg whenever a pint is sold. Each click will decrease the number of pints left by 1. Once pint hits 0, further reduction is prevented by disabling the button.
-
--  **All**  state in application is handled by Redux (includes Local and Shared).
-
--   All reducers were tested and all tests pass.
-
--   Action creators and constants were used.
-
+## Additional Features
+- Authentication
+- Authorization (ADMIN shall have greater level of Privileges such as Delete record, update record etc.)
+- Allow user to select a car upon which a “pending sale” shall appear and persist for 3 days or until completion of sale which ever happens first
+- Clicking on a car shall take user to “more details” page which shall have more images and additional details pertaining to clicked car.
 ## Component Tree Diagram
 
-![alt text](https://github.com/Rekjal/projTapRoomReactWithRedux/blob/master/src/img/Component_tree_diagram.png)
+![alt text](https://github.com/Rekjal/car-dealership/blob/master/src/img/projReactWithNoSQL.png)
 
             
-##### Date: **05/22/2020**
+##### Date: **05/31/2020**
 
 #### By **Salim Mayan**
 
 ## Specifications:
 
-* Spec 1: Creation of `New Keg`
-
-    + Input: On `landing page`, click on `Add New Keg` button
-
-    + Output: The app shall display below component. ![alt text](https://github.com/Rekjal/projTapRoomReactWithRedux/blob/master/src/img/Add_New_Keg.png)
-
-When above form is submitted, a flex box gets created with entered information (see image below)
-
-![alt text](https://github.com/Rekjal/projTapRoomReactWithRedux/blob/master/src/img/Tap_Room_with_1_Keg.png)
-
-* Spec 2: Display `Keg Details`
-
-    + Input: Click anywhere inside a flex box
-
-    + Output: User gets navigated to `Keg Details page` from where one can either `Delete` entire keg or `Update` data pertaining to current keg.
-
-![alt text](https://github.com/Rekjal/projTapRoomReactWithRedux/blob/master/src/img/Keg_Details_page.png)
-
-* Spec 3: Rendering of unlimited number of cards in an evenly spaced manner
-
-    + Input: Add multiple kegs
-    
-    + Output: UI will render multiple kegs in an evenly spaced manner
-
-![alt text](https://github.com/Rekjal/projTapRoomReactWithRedux/blob/master/src/img/Tap_Room_with_many_Kegs.png)
-
-* Spec 4: Track remaining pint in a Keg and display alert messages when quantity edges closer to 0
-
-    + Input: Click `Sell` button on a keg box
-    
-    + Output: Each click of button will decrease the number of pints left by 1.
-
-		+ Once pint hits 0, further reduction is prevented by disabling the button.
-
-		+ Keg gets updated with a message `"Out of Stock"` once it's empty.
-
-		+ When pints left in a keg is under 10, keg gets updated with a message `"Almost Empty"`.
-
-![alt text](https://github.com/Rekjal/projTapRoomReactWithRedux/blob/master/src/img/Tap_Room_tracking_multiple_kegs_its_pints_and_alert_Messages.png)
 
 ## Setup/Installation Requirements
 
@@ -80,19 +42,12 @@ When above form is submitted, a flex box gets created with entered information (
 * No known bugs at this time.
 
 ## Technologies Used
-
+* Use Case
+* Firestore
 * React
-
-* Redux
-* HTML
-
-* CSS
-
-* Flex
-
-* JS
-
-* Bootstrap
+* React-Redux
+* HTML/CSS/JS/BootStrap
+* Firebase Authorization/Authentication/Hosting
 
 ## Support and contact details
 
