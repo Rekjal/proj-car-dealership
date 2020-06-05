@@ -1,0 +1,26 @@
+The virtual DOM is made up of React elements (which we specify in JSX – more about that later) which look similar to HTML elements but are actually Javascript objects. ADVANTAGE OF VIRTUAL DOM? It is much faster to work with Javascript objects than with the DOM API directly. React component contains a JSX template that ultimately outputs HTML elements.  We define our React components using a HTML like syntax known as JSX. JSX is a syntax extension to Javascript. We use JSX to construct a virtual DOM with React elements. JSX is a syntax extention to JS - we use it to construt virtual DOM with React Elements
+                
+SETTIN UP: On a new machine, we need to install NodeJS whihc si a server side language. we don�t need NodeJS because we are not writing any server-side code but we mostly need it because of its npm or Node Package Manager. npm is very popular for managing dependencies of your applications.
+                
+
+node -v  (to see nodeJS version)
+npm -v (to see npm version)
+                
+
+create-react-app is the best way to start building a new React single page application. It is a Command Line Interface tool that makes creating a new React project, adding files and other on-going development tasks like testing, bundling and deployment easier. It uses build tools like Babel and Webpack under the hood and provides a pleasant developer experience. To install �create-react-app� from the command line, run the following: "npm install -g create-react-app" . 
+
+"npx create-react-app <project_name>"  ==>  this is an alternate way of creating a React project without the need to run npm install
+                
+You can also run the npm run build command which creates a production-ready bundle that has been transpiled and minified.
+
+In the src folder, we have index.js which is the main entry point for our app. In index.js, we render the App React element into the root DOM node. Applications built with just React usually have a single root DOM node.
+
+In index.js, we import both React and ReactDOM which we need to work with React in the browser. React is the library for creating views. ReactDOM is the library used to render the UI in the browser.
+
+ReactDOM.render(   <React.StrictMode>     <App />
+
+                
+
+
+
+

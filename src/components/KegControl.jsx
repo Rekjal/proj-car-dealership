@@ -7,6 +7,7 @@ import "./Keg.css";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import * as a from "./../actions";
+import GetDataInRealTime from "./GetDataInRealTime";
 
 class KegControl extends React.Component {
   // constructor(props) {
@@ -145,6 +146,7 @@ class KegControl extends React.Component {
             {buttonText}
           </button>
         </div>
+        <GetDataInRealTime/>
       </React.Fragment>
     );
   }
