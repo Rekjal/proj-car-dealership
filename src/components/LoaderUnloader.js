@@ -70,8 +70,6 @@ function LoaderUnloader() {
     console.log("SALIM!!!!:fileUrl ");
     console.log("SALIM-Printing state value");
     console.log(imgURLs);
-    // setImageURLs(await fileRef.getDownloadURL());
-    // }
     printValues();
   };
 
@@ -90,9 +88,7 @@ function LoaderUnloader() {
      );
     const target = { a: 1, b: 2 };
     const returnedTarget = Object.assign({}, target, target);
-    // emptyImageURL(); //empty State stores "Storage URls"
-   
-    
+    // emptyImageURL(); //empty State stores "Storage URls"    
     //  Make: carMake,
     addNonImageFieldToFirestore(uuIDTicket.id);
     // console.log("SALIM!!!carMake:imgExtURL:imgURLs::" + carMake + ":" + imgExtURL + ":" + imgURLs);
@@ -134,21 +130,21 @@ function LoaderUnloader() {
           </tr>
         </table>
       </form>
-      <ul>
+      {/* <ul>
         {users.map((user) => {
           return (
-            <li key={user.name}>
+            <li key={user.Make}>
               <img
                 width="100"
                 height="100"
                 src={user.ImageURLs}
-                alt={user.name}
+                alt={user.Make}
               />
-              <p>{user.name}</p>
+              <p>{user.Make}</p>
             </li>
           );
         })}
-      </ul>
+      </ul> */}
     </>
   );
 }
