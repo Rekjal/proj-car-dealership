@@ -2,63 +2,62 @@ import firebase from "./../firebase";
 import React, { useEffect, useState } from "react";
 import { useFirestore } from "react-redux-firebase";
 import { withFirestore, isLoaded } from "react-redux-firebase"; //"isLoaded" is authrization related
-
+import { v4 } from "uuid";
 
 const db = firebase.firestore();
 
 function LoaderUnloader() {
   const firestore = useFirestore();
-  const [fileUrl, setFileUrl] = React.useState([]);
+  const [fileUrl, setFileURLs] = React.useState([]);
+  const [emptyImageURLs, setEmptyImageURLs] = React.useState([]);
   const [users, setUsers] = React.useState([]);
-  const [imgExtFrontURL, setExtFrontURL] = React.useState([]);
+  const [imgURLs, setImageURLs] = React.useState([]);
 
+  //   const newMasterKegList = this.state.masterKegList.concat(newKeg);
+  //     this.setState({
+  //       masterKegList: newMasterKegList,
+  //       formToRender: false,
+  //     });
+  // kegList.map((keg) => (
 
-//   const newMasterKegList = this.state.masterKegList.concat(newKeg);
-//     this.setState({
-//       masterKegList: newMasterKegList,
-//       formToRender: false,
-//     });
-// kegList.map((keg) => (
+  const addImageURL = (toAdd) => {
+    setImageURLs([
+      ...imgURLs,
+      {
+        id: imgURLs.length,
+        value: toAdd,
+      },
+    ]);
+  };
 
-    const addItem = (temp) => {
-        setExtFrontURL([
-          ...imgExtFrontURL,
-          {
-            id: imgExtFrontURL.length,
-            value: temp,
-          }
-        ]);
-      };
+  const emptyImageURL = () => {
+    setImageURLs([]);
+  };
 
-      const addFileURL = (temp2) => {
-        setFileUrl([
-          ...fileUrl,
-          {
-            id: fileUrl.length,
-            value: temp2,
-          }
-        ]);
-      };
+  const addFileURL = (toAdd2) => {
+    setFileURLs([
+      ...fileUrl,
+      {
+        id: fileUrl.length,
+        value: toAdd2,
+      },
+    ]);
+  };
 
-      const printValues = e => {
-        // e.preventDefault();
-        console.log("SALIM!!!: Inside printValues");
-        console.log(imgExtFrontURL, users);
-      };
+  const printValues = (e) => {
+    // e.preventDefault();
+    console.log("SALIM!!!: Inside printValues");
+    console.log(imgURLs, users);
+  };
 
-
-  function addTicketToFirestore() { // add record to FireStore    
+  function addNonImageFieldToFirestore(id) {
+    // add record to FireStore
     // event.preventDefault();
-    // var cityRef = db.collection('car').doc('BJ');
-    // return firestore.collection("car").doc("oXh7mngaboRciMHgusyT").add({
-    return firestore.collection("car").add({
-      imgFrontExterior: fileUrl,
-       //imgFrontExterior2: imgExtFrontURL[1],
-       //newfield: "moment of truth",
-       //make: carMake,
-    });
+    // return firestore.collection("car").doc(id).add({
+    //   imgFrontExterior: fileUrl,
+    // });
+    emptyImageURL();
   }
-
 
   const onFileChange = async (e) => {
     const file = e.target.files[0];
@@ -66,38 +65,37 @@ function LoaderUnloader() {
     console.log(file);
     const storageRef = firebase.storage().ref();
     const fileRef = storageRef.child(file.name);
-    // await fileRef.put(file);
-    // setFileUrl(await fileRef.getDownloadURL());
-    // console.log("SALIM!!!!:fileUrl ");
-    // console.log(fileUrl);
-
-    // for(var i =0; i< file.length; i++) {
-        // var fileRef = storageRef.child(file[i].name);
-        await fileRef.put(file);  
-        addFileURL(await fileRef.getDownloadURL());
-        console.log("SALIM!!!!:fileUrl ");
-        console.log(fileUrl);
-        addItem(await fileRef.getDownloadURL());
-        console.log("SALIM-Printing state value");
-        console.log(imgExtFrontURL);
-        // setExtFrontUrl(await fileRef.getDownloadURL()); 
+    await fileRef.put(file);
+    addImageURL(await fileRef.getDownloadURL());
+    console.log("SALIM!!!!:fileUrl ");
+    console.log("SALIM-Printing state value");
+    console.log(imgURLs);
+    // setImageURLs(await fileRef.getDownloadURL());
     // }
     printValues();
-
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const username = e.target.username.value;
-    if (!username || !fileUrl) {
+    const uuIDTicket = {};
+    uuIDTicket.id = v4();
+    const carMake = e.target.carMake.value;
+    if (!carMake || !fileUrl) {
       return;
     }
-    await db.collection("car").doc(username).set({ //"car" is the name of collection
-      name: username,
-      avatar: fileUrl,
-    });
-    addTicketToFirestore();
-    // console.log("SALIM!!!carMake:imgExtURL:imgExtFrontURL::" + carMake + ":" + imgExtURL + ":" + imgExtFrontURL);
+    await db.collection("car").doc(uuIDTicket.id).set({ //"car" is the name of collection
+      ImageURLs: imgURLs,
+      Make: carMake,
+    },
+     );
+    const target = { a: 1, b: 2 };
+    const returnedTarget = Object.assign({}, target, target);
+    // emptyImageURL(); //empty State stores "Storage URls"
+   
+    
+    //  Make: carMake,
+    addNonImageFieldToFirestore(uuIDTicket.id);
+    // console.log("SALIM!!!carMake:imgExtURL:imgURLs::" + carMake + ":" + imgExtURL + ":" + imgURLs);
   };
 
   useEffect(() => {
@@ -115,16 +113,37 @@ function LoaderUnloader() {
   return (
     <>
       <form onSubmit={onSubmit}>
-        <input type="file" onChange={onFileChange} />
-        <input type="file" onChange={onFileChange} />
-        <input type="text" name="username" placeholder="NAME" />
-        <button>Submit</button>
+        <table>
+          <tr>
+            {" "}
+            <td>
+              <input type="file" onChange={onFileChange} />{" "}
+            </td>
+            <td>
+              {" "}
+              <input type="file" onChange={onFileChange} />{" "}
+            </td>
+            <td>
+              {" "}
+              <input type="text" name="carMake" placeholder="Make" />
+            </td>
+            <td>
+              {" "}
+              <button>Submit</button>{" "}
+            </td>
+          </tr>
+        </table>
       </form>
       <ul>
         {users.map((user) => {
           return (
             <li key={user.name}>
-              <img width="100" height="100" src={user.avatar} alt={user.name} />
+              <img
+                width="100"
+                height="100"
+                src={user.ImageURLs}
+                alt={user.name}
+              />
               <p>{user.name}</p>
             </li>
           );
