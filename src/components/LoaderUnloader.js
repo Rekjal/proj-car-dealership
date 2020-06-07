@@ -12,6 +12,7 @@ function LoaderUnloader() {
   const [emptyImageURLs, setEmptyImageURLs] = React.useState([]);
   const [users, setUsers] = React.useState([]);
   const [imgURLs, setImageURLs] = React.useState([]);
+  const [enteredText, setEnteredText] = useState(''); 
 
   //   const newMasterKegList = this.state.masterKegList.concat(newKeg);
   //     this.setState({
@@ -75,15 +76,24 @@ function LoaderUnloader() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    for (var i =0; i < 7; i++) {
+        document.getElementsByClassName("clearFileFieldOnSubmit")[i].value = "";
+    }
+
+    // document.getElementsByClassName("clearFileFieldOnSubmit")[2].value = "";
+    // var form = document.getElementsById("clearFileFieldOnSubmit");
+    // form.reset();
     const uuIDTicket = {};
     uuIDTicket.id = v4();
     const carMake = e.target.carMake.value;
-    if (!carMake || !fileUrl) {
+    const carModel = e.target.carModel.value;    
+    if (!carMake || !fileUrl || !carModel) {
       return;
     }
     await db.collection("car").doc(uuIDTicket.id).set({ //"car" is the name of collection
       ImageURLs: imgURLs,
       Make: carMake,
+      Model: carModel,
     },
      );
     const target = { a: 1, b: 2 };
@@ -113,15 +123,31 @@ function LoaderUnloader() {
           <tr>
             {" "}
             <td>
-              <input type="file" onChange={onFileChange} />{" "}
+              <input type="file" className="clearFileFieldOnSubmit" onChange={onFileChange} />{" "}
             </td>
             <td>
               {" "}
-              <input type="file" onChange={onFileChange} />{" "}
+              <input type="file"  className="clearFileFieldOnSubmit" onChange={onFileChange} />{" "}
             </td>
             <td>
               {" "}
-              <input type="text" name="carMake" placeholder="Make" />
+              <input type="file" className="clearFileFieldOnSubmit" onChange={onFileChange} />{" "}
+            </td>
+            <td>
+              {" "}
+              <input type="file"  className="clearFileFieldOnSubmit" onChange={onFileChange} />{" "}
+            </td>
+            <td>
+              {" "}
+              <input type="file"  className="clearFileFieldOnSubmit" onChange={onFileChange} />{" "}
+            </td>
+            <td>
+              {" "}
+              <input type="text" className="clearFileFieldOnSubmit"  name="carModel" placeholder="Model" />
+            </td>
+            <td>
+              {" "}
+              <input type="text" className="clearFileFieldOnSubmit" name="carMake" placeholder="Make" />
             </td>
             <td>
               {" "}
