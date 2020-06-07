@@ -8,6 +8,9 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import * as a from "./../actions";
 import GetDataInRealTime from "./GetDataInRealTime";
+import { useSelector } from "react-redux"; //hook allows us to extract data from a Redux store.
+import { useFirestoreConnect, isLoaded } from "react-redux-firebase"; //hook allows us to listen for changes to Firestore without using an HOC in a class component.
+import firebase from "./../firebase";
 
 class KegControl extends React.Component {
   // constructor(props) {
@@ -16,6 +19,13 @@ class KegControl extends React.Component {
   //   //   selectedKeg: null,
   //   //   editing: false,
   //   // };
+  // }
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     cars: [],
+  //   };
   // }
 
   handleClick = () => {
@@ -95,9 +105,20 @@ class KegControl extends React.Component {
     dispatch(action);
   };
 
+  fetchData = async () => {
+    const db = firebase.firestore();
+    const data = await db.collection("car").get();
+    //   const { dispatch } = this.props;
+    // const action = a.addKeg(newKeg);
+    // dispatch(action);
+    // SetCarObject(data.docs.map(doc => doc.data()));
+  }
+
+ 
   render() {
     let currentlyVisibleForm = null;
     let buttonText = null;
+
     if (this.props.edit) {
       currentlyVisibleForm = (
         <EditKegForm
@@ -121,7 +142,11 @@ class KegControl extends React.Component {
       );
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleForm = (
+
+      
+      // fetchData();
+
+          currentlyVisibleForm = (
         <KegList
           className="grid-container flex-item card"
           kegList={this.props.masterKegList}
@@ -132,21 +157,11 @@ class KegControl extends React.Component {
       buttonText = "Add New Keg";
     }
 
+    
+
     return (
       <React.Fragment>
-        <div id="card-list" className="flex-container">
-          {currentlyVisibleForm}
-        </div>
-        <div>
-          <br></br>
-          <button
-            className="buttonPrimary btn btn-primary"
-            onClick={this.handleClick}
-          >
-            {buttonText}
-          </button>
-        </div>
-        <GetDataInRealTime/>
+        <GetDataInRealTime />
       </React.Fragment>
     );
   }
