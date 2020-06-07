@@ -145,7 +145,7 @@ function LoadDataToFS() {
           placeholder="Model"
         />
         <br></br> <br></br>
-        <button>Submit</button>{" "}
+        <button className="buttonPrimary btn btn-primary" >Submit</button>{" "}
         <br></br> <br></br>
       </form>
      

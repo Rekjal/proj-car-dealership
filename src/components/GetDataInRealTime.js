@@ -10,6 +10,7 @@ import firebase from "./../firebase";
 
 function GetDataInRealTime(props) {
   const [currentVisibleForm, SetCurrentVisibleForm] = React.useState(false);
+  const { onKegSelectPintSale, onKegSelection } = props;
   let buttonText = null;
   let renderForm = null;
 
@@ -35,13 +36,27 @@ function GetDataInRealTime(props) {
     return (
       <React.Fragment>
         {renderForm}
-        <button onClick={handleClick}>{buttonText}</button>
-        <React.Fragment>
-          {/* <br></br> <br></br> id={indiCounter.id} <br></br>
-                <br></br> <br></br> Make={indiCounter.Make} <br></br> */}
-          {/* <br></br> <br></br> <img src="indiCounter.id.Make" alt="Girl in a jacket" ></img> <br></br> */}
-        </React.Fragment>
-      </React.Fragment>
+        <br></br>
+        <br></br>
+        <br></br> 
+        <button className="btn btn-success button" onClick={handleClick}>{buttonText}</button>
+        {/* {Object.values(props.kegList).map((keg) => {
+        return (
+          <LoadDataToFS
+            whenKegClicked={onKegSelection}
+            whenKegPintSaleClicked={onKegSelectPintSale}
+            message={keg.alertMessage}
+            kegName={keg.kegName}
+            kegBrand={keg.kegBrand}
+            kegPrice={keg.kegPrice}
+            disableButton={keg.disableButton}
+            id={keg.id}
+            key={keg.id} //needed
+            pintQty={keg.pintQty}
+          />
+        );
+      })} */}
+    </React.Fragment>
     );
   } else {
     return (
