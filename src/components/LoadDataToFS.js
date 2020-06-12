@@ -70,7 +70,12 @@ function LoadDataToFS() {
     setUuID(uuIDTicket.id);
     const carMake = e.target.carMake.value;
     const carModel = e.target.carModel.value;
-    if (!carMake || !fileUrl || !carModel) {
+    const Miles = e.target.Miles.value;
+    const Trim = e.target.Trim.value;
+    const Price = e.target.Price.value;
+    const Year = e.target.Year.value;
+
+    if (!carMake || !fileUrl || !carModel || Miles || Trim || Price || Year ) {
       return;
     }
     await db.collection("car").doc(uuIDTicket.id).set({
@@ -78,6 +83,12 @@ function LoadDataToFS() {
       ImageURLs: imgURLs,
       Make: carMake,
       Model: carModel,
+      Miles: Miles,
+      Price: Price,
+      Trim: Trim,
+      Year: Year,
+
+
     });
 
     for (var i = 0; i < 7; i++) {
@@ -156,6 +167,35 @@ function LoadDataToFS() {
           placeholder="Model"
         />
         <br></br> <br></br>
+        <input
+          type="text"
+          className="clearFileFieldOnSubmit"
+          name="Year"
+          placeholder="Year"
+        />
+        <br></br> <br></br>
+        <input
+          type="text"
+          className="clearFileFieldOnSubmit"
+          name="Trim"
+          placeholder="Trim"
+        />
+        <br></br> <br></br>
+        <input
+          type="text"
+          className="clearFileFieldOnSubmit"
+          name="Miles"
+          placeholder="Miles"
+        />
+        <br></br> <br></br>
+        <input
+          type="text"
+          className="clearFileFieldOnSubmit"
+          name="Price"
+          placeholder="Price"
+        />
+        <br></br> <br></br>         
+
         <button className="buttonPrimary btn btn-primary" >Submit</button>{" "}
         <br></br> <br></br>
       </form>

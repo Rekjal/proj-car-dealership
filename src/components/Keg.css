@@ -260,3 +260,20 @@ h3 {
   font-weight: 3000;
   margin-bottom: 10px;
 }
+
+.navBar {
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Calibre-Regular";
+  font-size: 16px;
+  line-height: 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  color: #e7131a;
+  fill: rgb(4, 16, 34);
+  box-sizing: inherit;
+  margin-right: 30px;
+  height: 18px;
+  width: 104.4px;
+  overflow: hidden;
+  margin: 0;
+    background-color: #f5f5f5;
+}

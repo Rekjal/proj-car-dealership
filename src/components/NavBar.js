@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import "./Keg.css";
 
 class NavBar extends Component {
-  render() { 
+  render() {
     return (
-<nav className="navbar navbar-light fixed-top bg-light"> 
-{/* navbar navbar-expand-md navbar-dark fixed-top bg-dark */}
-  <a className="navbar-brand" href="#">Navbar</a>
-</nav>
-      );
+      <nav className="navbar navbar-light fixed-top bg-light">
+        {/* fixed-top bg-light */}
+        <a className="navbar-brand" href="#">
+          <div className = "navBar"> 
+          CARS DIRECT </div>
+        </a>
+      </nav>
+    );
   }
 }
- 
+
 export default NavBar;

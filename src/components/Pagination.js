@@ -3,7 +3,8 @@ import _ from 'lodash'; //lodash is optimized version of JS library called under
 
 const Pagination = (props) => {
     const { itemsCount, pageSize, currentPage, onPageChange} = props;
-    const pagesCount = itemsCount/pageSize;
+    const pagesCount = Math.ceil(itemsCount/pageSize);
+    if(pagesCount === 1) return null;
     const pages = _.range(1, pagesCount+1); //range() generates an array with starting number 1
 
     return (
