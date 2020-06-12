@@ -51,6 +51,10 @@
 
 ## Support and contact details
 
+## Todo
+
+Input to `Pagination` component is the total number of items as well as Page size. Another input is an event when ever user clicks on a new page. Based on this info this component can calcaulte number of pages and render them 
+
 _Email no one with any questions, comments, or concerns._
 
 ### License

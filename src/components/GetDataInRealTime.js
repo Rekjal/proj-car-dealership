@@ -32,31 +32,16 @@ function GetDataInRealTime(props) {
       buttonText = "Go to Data Upload Page";
       renderForm = <FetchDataFromFS />;
     }
-
     return (
       <React.Fragment>
         {renderForm}
         <br></br>
         <br></br>
-        <br></br> 
-        <button className="btn btn-success button" onClick={handleClick}>{buttonText}</button>
-        {/* {Object.values(props.kegList).map((keg) => {
-        return (
-          <LoadDataToFS
-            whenKegClicked={onKegSelection}
-            whenKegPintSaleClicked={onKegSelectPintSale}
-            message={keg.alertMessage}
-            kegName={keg.kegName}
-            kegBrand={keg.kegBrand}
-            kegPrice={keg.kegPrice}
-            disableButton={keg.disableButton}
-            id={keg.id}
-            key={keg.id} //needed
-            pintQty={keg.pintQty}
-          />
-        );
-      })} */}
-    </React.Fragment>
+        <br></br>
+        <button className="btn btn-success button" onClick={handleClick}>
+          {buttonText}
+        </button>
+      </React.Fragment>
     );
   } else {
     return (

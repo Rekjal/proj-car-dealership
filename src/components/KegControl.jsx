@@ -7,10 +7,17 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import * as a from "./../actions";
 import GetDataInRealTime from "./GetDataInRealTime";
+import Pagination from "./Pagination";
 import { useSelector } from "react-redux"; //hook allows us to extract data from a Redux store.
 // import { useFirestoreConnect, isLoaded } from "react-redux-firebase"; //hook allows us to listen for changes to Firestore without using an HOC in a class component.
 import firebase from "./../firebase";
 import React, { Component, useEffect, useState } from "react";
+import {paginate} from "./../utils/paginate";
+
+
+// import {getMovies} from "./movieObjectComp";
+// import index from "./index";
+
 import {
   useFirestore,
   withFirestore,
@@ -20,20 +27,20 @@ import {
 } from "react-redux-firebase"; //"isLoaded" is authrization related
 
 class KegControl extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   // this.state = {
-  //   //   selectedKeg: null,
-  //   //   editing: false,
-  //   // };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      formToRender: false, //Local State
+      masterCarList: [], //Shared State (passed down to KegList.jsx and from there to Keg.jsx)
+      selectedKeg: null,
+      alertMessage: null,
+      editing: false,
+      pageSize: 4,
+      currentPage: 1,
+    };
+  }
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     cars: [],
-  //   };
-  // }
+  
 
   handleClick = () => {
     if (this.props.selectedKeg != null) {
@@ -112,18 +119,43 @@ class KegControl extends React.Component {
     dispatch(action);
   };
 
-  // fetchData = async () => {
-  //   useFirestoreConnect([{ collection: "car" }]); //#####The useFirestoreConnect() hook comes from react-redux-firebase. -specify the collection or documents we want to listen to in Firestore.
-  //  const counter = await useSelector((state) => state.firestore.ordered.car); //firestoreReducer passes data into a firestore data slice - from there grab state.firestore.tickets. save our collection in a constant called counter.
-  //   const { dispatch } = this.props;
-  //   const action = a.addKeg(counter);
-  //   dispatch(action);
-  // }
+
+  handlePageChange= (page) => {
+    console.log(page);
+    this.setState({currentPage: page});
+  };
+
+
+  componentDidMount() {
+    const db = firebase.firestore();
+    db.collection("car")
+      .get()
+      .then((querySnapshot) => {
+        // const cars = querySnapshot.docs.map((doc) => doc.data());
+        const cars = querySnapshot.docs.map((doc) => {
+          const id = doc.id;
+          const data = doc.data();
+          return { id, ...data };
+        });
+        const { dispatch } = this.props;
+        const action = a.addKeg(cars);
+        dispatch(action);
+        // const newMasterCarList = this.state.masterCarList.concat(cars);
+        this.setState({
+          masterCarList: cars,
+          formToRender: false,
+        });
+      });      
+  }
+
 
   render() {
     let currentlyVisibleForm = null;
     let buttonText = null;
-
+    console.log("SALIM!!: INSIDE CONTROL - STATE masterCarList is ");
+    console.log(JSON.stringify(this.state.masterCarList));
+    const paginationCarArray = paginate(this.state.masterCarList, this.state.pageNumber, this.state.pageSize)
+    
     if (this.props.edit) {
       currentlyVisibleForm = (
         <EditKegForm
@@ -147,32 +179,14 @@ class KegControl extends React.Component {
       );
       buttonText = "Return to Keg List";
     } else {
-      const fetchdata = () => {
-        const db = firebase.firestore();
-        var counter;
-        var docRef = db.collection("car");
-        docRef
-          .get()
-          .then(function (doc) {
-            if (doc.exists) {
-              console.log("Document data:", doc.data());
-              counter = doc.data();
-            } else {
-              // doc.data() will be undefined in this case
-              console.log("No such document!");
-            }
-          })
-          .catch(function (error) {
-            console.log("Error getting document:", error);
-          });
-        const { dispatch } = this.props;
-        const action = a.addKeg(counter);
-        dispatch(action);
-      };
+      // console.log("SALIM!!: INSIDE CONTROL - new FETCHDATA2 IS ");
+      // console.log(JSON.stringify(cars));
+      // const { dispatch } = this.props;
+      // const action = a.addKeg(cars);
+      // dispatch(action);
 
-      console.log("SALIM!!: INSIDE CONTROL - FETCHDATA IS ");
-      const carObejct = fetchdata;
-      console.log(carObejct);
+      // const carObejct = fetchdata;
+      // console.log(carObejct);
 
       // currentlyVisibleForm = (
       //   <KegList
@@ -182,7 +196,8 @@ class KegControl extends React.Component {
       //     onKegSelection={this.handleChangingSelectedKeg}
       //   />
       // ); //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
-      
+
+      // this.putMoveisInState();
       currentlyVisibleForm = (
         <GetDataInRealTime
           className="grid-container flex-item card"
@@ -191,14 +206,24 @@ class KegControl extends React.Component {
           onKegSelection={this.handleChangingSelectedKeg}
         />
       ); //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
-      
+
       buttonText = "Add New Keg";
     }
 
     return (
       <React.Fragment>
-         <div id="card-list" className="flex-container">
-        <GetDataInRealTime />
+      
+        {/* <ul>
+          {this.state.masterCarList.map((car) => (
+            <li key={car.id}>
+              {car.id} - {car.Make} - {car.Model} - {car.ImageURLs[0].value}{" "}
+              -IMAGE-2!!!!!: {car.ImageURLs[1].value}
+            </li>
+          ))}
+        </ul> */}
+        <div className="wrapper">
+          <GetDataInRealTime />
+          <Pagination itemsCount={this.state.masterCarList.length} pageSize = {this.state.pageSize} currentPage = {this.state.currentPage} onPageChange ={this.handlePageChange} />
         </div>
       </React.Fragment>
     );

@@ -1,0 +1,19 @@
+DTNATELE-14735 EB 2.0 - Develop COBA Claims API Service	Major - Major loss of function	OPEN
+DTNATELE-14740 EB 2.0 - Develop COBA Claims API Service Data Contracts	Major - Major loss of function	OPEN
+DTNATELE-14746 EB 2.0 - Develop GraphQL Table Scan CI/CD Pipelines	Major - Major loss of function	OPEN
+DTNATELE-14749 EB 2.0 - Develop COBA Claims API Service CI/CD Pipelines	Major - Major loss of function	OPEN
+DTNATELE-15817 (F-12207) SPIKE: Discovery - How to Implement Functionapp with appserviceplan into Current Network	Minor - Minor loss of function, or other problem where easy workaround is present	OPEN
+DTNATELE-15821 (F-12207) Spike: Implement Functionapp and appserviceplan into Current Network	Minor - Minor loss of function, or other problem where easy workaround is present	OPEN
+DTNATELE-15822 (F-12207) Spike: Implement Independent VM to Host Docker Daemon	Minor - Minor loss of function, or other problem where easy workaround is present	OPEN
+DTNATELE-15825 (F-12207) Configure CI/CD Pipeline for Express WriteUp Fault API	Minor - Minor loss of function, or other problem where easy workaround is present	OPEN
+DTNATELE-15826 (F-12207) Launch New Micro Service in Bitbucket for Express WriteUp Fault API	Minor - Minor loss of function, or other problem where easy workaround is present	OPEN
+DTNATELE-13581 EB 2.0 - Develop API Domain Architecture Diagram(s)	Major - Major loss of function. IN PROGRESS
+DTNATELE-14717 EB 2.0 - Develop and Implement a common HBase connectivity module	Major - Major loss of function. IN PROGRESS
+DTNATELE-14718 EB 2.0 - Develop and Implement a common logging module	Major - Major loss of function. IN PROGRESS
+DTNATELE-13582 OSOLETE: EB 2.0 - SPIKE - Collect all GraphQL Table Scan API Service Requirements	Major - Major loss of function. OBSOLETE
+DTNATELE-14715 OBSOLETE: EB 2.0 - Develop GraphQL Table Scan API Service	Major - Major loss of function. OBSOLETE
+DTNATELE-14726 OBSOLETE: EB 2.0 - Develop GraphQL Table Scan API Service Contracts	Major - Major loss of function. OBSOLETE
+DTNATELE-14719 EB 2.0 - SPIKE - Collect all logging module requirements	Major - Major loss of function. DEV COMPLETE
+DTNATELE-14723 EB 2.0 - Develop Architecture Diagrams	Major - Major loss of function. DEV COMPLETE
+DTNATELE-14731 EB 2.0 - SPIKE - Collect all COBA Claims API Service Requirements	Major - Major loss of function. DEV COMPLETE
+

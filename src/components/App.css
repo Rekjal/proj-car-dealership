@@ -2,11 +2,18 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: .35fr 1fr 1fr;
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	padding: 0, 0, 20px, 0;
+	margin:20px;
 }
 
+
 .carddiv {
+	padding: 0, 0, 20px, 0;
+	margin:20px;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
 	 grid-area: 2 / 2 / 3 / 3; /*grid-area property to specify where to place an item */
 }
 
@@ -21,7 +28,7 @@ body {
 .outputArray {
 	color: yellowgreen;
 	font-weight: 700;
-	backgroundColor: red;
+	background-color: red;
   }
 
 

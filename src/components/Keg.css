@@ -1,41 +1,115 @@
+body {
+  background-color: #eee;
+}
+.wrapper {
+  display: grid;
+  /* grid-template-columns:1fr 1fr 1fr;*/
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap:0.1em;
+  grid-row-gap:1em;
+  /* grid-gap: 2em; */
+  /* grid-auto-rows:100px; */
+  /*
+  grid-column-gap:1em;
+  grid-row-gap:1em;
+  */
+  /* grid-auto-rows: minmax(100px, auto); */
+  /* padding:1em; */
+  margin: 1em;
+}
+
+.wrapper > img {
+  image-rendering: left;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+}
+
+.wrapper > div {
+  /* background: #eee; */
+  /* padding:1em; */
+}
+.wrapper > div:nth-child(odd) {
+  /* background: #ddd; */
+}
+
 .KegCard {
-  width: 400px;
-  height: 500px;
-  border: 2px lightgrey solid;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px 0 lightgrey;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 5px;
-  justify-content: space-between;
+  width: 260px;
+  height: 445px;   /* 285 is ideal   */
+  background-color: #fff;
+  /* border: 2px lightgrey solid; */
+  /* border-radius: 5px; */
+  /* box-shadow: 3px 3px 3px 0 lightgrey; */
+  /* margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 40px, 40px, 40px, 40px; */
+  /* justify-content: space-between; */
+  /* row-gap: 20px;
+  grid-column-gap: 20px;
+	grid-row-gap: 20px; */
 }
 
 #card-list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-items: center;
+  /* display: flex;
+  flex-flow: row wrap;  
   flex-basis: auto;
-  padding: 5px;
+  /* row-gap: 20px; */
+  /* grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  grid-gap: 200px; */
+  /* padding: 0, 0, 20px, 0;
+  margin: 20px; */
+  /* justify-items: center; */
 }
 
 .card {
-  display: flex;
-  align-items: left;
-  padding: 5px;
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* margin-left: 8;
+    margin-top: 8; */
+  /* align-items: left;
+  padding: 0, 0, 20px, 0;
+  margin: 20px;
+  row-gap: 20px; */
+  /* grid-column-gap: 20px;
+	grid-row-gap: 20px; */
+}
+
+.vroomColor {
+  font-family: "Calibre-Semibold";
+  font-size: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .coralColor {
   color: coral;
   font-family: "Indie Flower", cursive;
-  font-weight: 700;
-  margin: auto;
-  padding: auto;
-  text-align: center; /* critical */
+  font-weight: 400;
+  /* margin: auto;
+  padding: auto; */
+  text-align: left; /* critical */
 }
 
 p {
-  font-family: "Indie Flower", cursive;
-  font-weight: 700;
+  font-family: "Calibre-Semibold";
+  font-weight: 600;
+  /* padding-left: 12px; */
+  margin-top: 1px;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+ 
+}
+
+.moreWeight {
+  font-family: "Calibre-Semibold";
+ font-weight: 600;
+ padding-left: 8px;
+}
+.lessWeight {
+   font-family: "Calibre-Semibold";
+  font-weight: 100;
+  padding-left: 8px;
 }
 
 h1 {
@@ -63,8 +137,8 @@ h3 {
 }
 
 .divAlign {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .divAlign1 {
@@ -122,7 +196,7 @@ h3 {
   margin: 10px auto 10 auto;
   align-items: left;
   justify-content: center;
-  padding: 5px;
+  padding: 0, 0, 20px, 0;
 }
 
 .kegDetailButton {
