@@ -15,6 +15,7 @@ function CarDetail(props) {
 
   return (
     <React.Fragment>
+      <div className="kegDetail coralColor">
            <table class="table">
         <thead></thead>
         <tbody>
@@ -66,6 +67,7 @@ function CarDetail(props) {
           Delete Car
         </button>
       </div> */}
+      </div>
     </React.Fragment>
   );
 }

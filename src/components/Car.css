@@ -301,12 +301,13 @@ h3 {
 }
 
 .image {
-  max-height: 500px;
-  /* height: calc(50vh - 100px); */
-  /* height: calc(50vh - 100px); */
-  width: auto;
-  margin: 0 auto; /* it centers any block level element*/
+  max-height: 400px;
+  /* height: calc(50vh - 100px); 
+   height: calc(50vh - 100px); */
+  width: 600px;  /* window is fixed so increating this does not have an effect */
+  /* margin: 0 auto;  */
   image-orientation: auto;
+  
 }
 .enlarged {
   max-height: none;
@@ -315,5 +316,5 @@ h3 {
 .centerScreen {
  display: flex;
   justify-content: center;
-  width: 1050px; 
+  width: 1050; 
 }

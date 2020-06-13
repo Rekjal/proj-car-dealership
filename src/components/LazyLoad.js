@@ -8,36 +8,38 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Wrapper = styled.div` 
-width: 200%;
-padding: 32px;
-slider img{
-  padding: 10%;
-  width: 80%;
+width:180%; //less than 90 and left arrow dissapers + increased window width - best is 190
+padding: 20px; //less than 20 button dissapers
+position: relative; //abodlute does craxy things
+    bottom: 10px;
+    left: 390px; //v g - moves coursal to right with increase in pixel (ideal 340)
+
+slider img{ //not responsive
+  max-width: 200%;
+  min-height: 500px;
+  padding: 100%;
+  width: 300%;
   vertical-align: middle;
 }
-
 .slider a{
   vertical-align: middle;
   line-height:normal;
   display: inline-block;
 }
-
 .slider div{
-  height: 161px;
-  line-height: 161px;
+  height: 150px;
+  line-height: 105px;
 }
-
 .slick-prev:before,
 .slick-next:before {
-  color: blue;
-  centerMode: true
+  color: blue; //effective
+}
 .slick-track .slick-slide {
   display: flex;
   height: auto;
   align-items: center;
-  justify-content: center;
+  justify-content: left; //effective
 }
-
 `;
 
 
@@ -60,8 +62,8 @@ function LazyLoad(props) {
           speed={500}
           slidesToShow={1}
           slidesToScroll={1}
-          grid-template-columns={500}
-          infinite={false}
+          // grid-template-columns={500}
+          infinite={true}
           dots={true}
         >
           <Page>
