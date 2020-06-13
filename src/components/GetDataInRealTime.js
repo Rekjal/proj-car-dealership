@@ -3,7 +3,7 @@ import { useFirestoreConnect, isLoaded } from "react-redux-firebase"; //hook all
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import LoadDataToFS from "./LoadDataToFS";
-import FetchDataFromFS from "./FetchDataFromFS";
+import FetchDataFromFS from "./RenderCar";
 import firebase from "./../firebase";
 // import NavBar from "./NavBar"
 // We need to import hooks functionality from both react-redux and react-redux-firebase.
@@ -53,7 +53,7 @@ function GetDataInRealTime(props) {
 }
 
 GetDataInRealTime.propTypes = {
-  onTicketSelection: PropTypes.func,
+  onTicketSelection: PropTypes.func.isRequired,
 };
 
 export default GetDataInRealTime;

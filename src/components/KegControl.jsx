@@ -1,8 +1,8 @@
 import KegList from "./KegList";
 import NewKegForm from "./NewKegForm";
-import KegDetail from "./KegDetail";
+// import CarDetail from "./CarDetail";
 import EditKegForm from "./EditKegForm";
-import "./Keg.css";
+import "./Car.css";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import * as a from "./../actions";
@@ -12,10 +12,11 @@ import { useSelector } from "react-redux"; //hook allows us to extract data from
 // import { useFirestoreConnect, isLoaded } from "react-redux-firebase"; //hook allows us to listen for changes to Firestore without using an HOC in a class component.
 import firebase from "./../firebase";
 import React, { Component, useEffect, useState } from "react";
-import {paginate} from "./../utils/paginate";
+import { paginate } from "./../utils/paginate";
 import LoadDataToFS from "./LoadDataToFS";
-import FetchDataFromFS from "./FetchDataFromFS";
-
+import RenderCar from "./RenderCar";
+import LazyLoad from "./LazyLoad";
+import CarDetail from "./CarDetail";
 
 // import {getMovies} from "./movieObjectComp";
 // import index from "./index";
@@ -40,10 +41,9 @@ class KegControl extends React.Component {
       pageSize: 8,
       currentPage: 1,
       currentVisibleForm: false,
+      selectedCar: null,
     };
   }
-
-  
 
   handleClick = () => {
     if (this.props.selectedKeg != null) {
@@ -60,10 +60,11 @@ class KegControl extends React.Component {
   };
 
   handleClickCars = () => {
+    // this.setState({currentPage: 1});
     if (this.state.currentVisibleForm === false) {
-      this.setState({currentVisibleForm: true});
-    }  else {
-      this.setState({currentVisibleForm: false});
+      this.setState({ currentVisibleForm: true });
+    } else {
+      this.setState({ currentVisibleForm: false });
     }
   };
 
@@ -75,11 +76,13 @@ class KegControl extends React.Component {
     dispatch(action2);
   };
 
-  handleChangingSelectedKeg = (id) => {
-    const { dispatch } = this.props;
-    const selectedKeg = this.props.masterKegList[id];
-    const action7 = a.editSelectedKeg(selectedKeg);
-    dispatch(action7);
+  handleChangingSelectedCar = (id) => {
+    const selectedCar = this.state.masterCarList.filter(
+      (car) => car.id === id
+    )[0];
+    console.log("inside handleChangingSelectedCar - ID of clicked car is ");
+    console.log(selectedCar);
+    this.setState({ selectedCar: selectedCar }); //selectedCar will store object from SHARED SHARE masterCarList with a UUID corresponding to clicked car
   };
 
   handleDeletingKeg = (id) => {
@@ -130,12 +133,10 @@ class KegControl extends React.Component {
     dispatch(action);
   };
 
-
-  handlePageChange= (page) => {
+  handlePageChange = (page) => {
     console.log(page);
-    this.setState({currentPage: page});
+    this.setState({ currentPage: page });
   };
-
 
   componentDidMount() {
     const db = firebase.firestore();
@@ -156,9 +157,8 @@ class KegControl extends React.Component {
           masterCarList: cars,
           formToRender: false,
         });
-      });      
+      });
   }
-
 
   render() {
     let currentlyVisibleForm = null;
@@ -167,12 +167,17 @@ class KegControl extends React.Component {
     let buttonText = null;
     console.log("SALIM!!: INSIDE CONTROL - STATE masterCarList is ");
     console.log(JSON.stringify(this.state.masterCarList));
-    const paginationCarArray = paginate(this.state.masterCarList, this.state.currentPage, this.state.pageSize);
-    console.log("SALIM: INSIDE KEGCONTROL:::THINGS GOING TO PGAINATION FUCNTIONA ARE ");
+    const paginationCarArray = paginate(
+      this.state.masterCarList,
+      this.state.currentPage,
+      this.state.pageSize
+    );
+    console.log(
+      "SALIM: INSIDE KEGCONTROL:::THINGS GOING TO PGAINATION FUCNTIONA ARE "
+    );
     console.log(this.state.pageNumber);
     console.log(this.state.pageSize);
     console.log(paginationCarArray);
-   
 
     if (this.props.edit) {
       currentlyVisibleForm = (
@@ -181,15 +186,17 @@ class KegControl extends React.Component {
           onEditKeg={this.handleEditingKegInList}
         />
       );
-      buttonText = "Return to Keg List";
-    } else if (this.props.selectedKeg != null) {
+      buttonText = "Return to Car List";
+    } else if (this.state.selectedCar != null) {
+      // console.log("I AM HEREREERERERER - (this.props.selectedCar != null)  ");
       currentlyVisibleForm = (
-        <KegDetail
-          keg={this.props.selectedKeg}
+        <LazyLoad
+          selectedCar={this.state.selectedCar}
           onClickingDelete={this.handleDeletingKeg}
           onClickingEdit={this.handleEditClick}
         />
       );
+      renderForm2 =   <CarDetail selectedCar={this.state.selectedCar} />
       buttonText = "Return to Keg List";
     } else if (this.props.formToRender) {
       currentlyVisibleForm = (
@@ -197,36 +204,43 @@ class KegControl extends React.Component {
       );
       buttonText = "Return to Keg List";
     } else {
-
-     
+      console.log("I AM HEREREERERERER - else  ");
 
       if (this.state.currentVisibleForm) {
         buttonText = "Go to Listing Page";
-        renderForm = <LoadDataToFS />;
+        currentlyVisibleForm = <LoadDataToFS />;
       } else {
         buttonText = "Go to Data Upload Page";
-        renderForm = <FetchDataFromFS carList={paginationCarArray}/>;
-        renderForm2 =<Pagination itemsCount={this.state.masterCarList.length} pageSize = {this.state.pageSize} currentPage = {this.state.currentPage} onPageChange ={this.handlePageChange} />;
-               
+        currentlyVisibleForm = (
+          <RenderCar
+            carList={paginationCarArray}
+            onCarSelection={this.handleChangingSelectedCar }
+          />
+        );
+        renderForm2 = (
+          <Pagination
+            itemsCount={this.state.masterCarList.length}
+            pageSize={this.state.pageSize}
+            currentPage={this.state.currentPage}
+            onPageChange={this.handlePageChange}
+          />
+        );
       }
 
-      currentlyVisibleForm = (
-        <LoadDataToFS
-          className="grid-container flex-item card"
-          kegList={this.props.masterKegList}
-          onKegSelectPintSale={this.handlePintSale}
-          onKegSelection={this.handleChangingSelectedKeg}
-        />
-      ); //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
+      // currentlyVisibleForm = (
+      //   <LoadDataToFS
+      //     className="grid-container flex-item card"
+      //     kegList={this.props.masterKegList}
+      //     onKegSelectPintSale={this.handlePintSale}
+      //     onKegSelection={this.handleChangingSelectedKeg}
+      //   />
+      // ); //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
 
       // buttonText = "Add New Keg";
     }
 
-
-
-
     return (
-      <React.Fragment>      
+      <React.Fragment>
         {/* <ul>
           {this.state.masterCarList.map((car) => (
             <li key={car.id}>
@@ -235,23 +249,20 @@ class KegControl extends React.Component {
             </li>
           ))}
         </ul> */}
-         <br></br>
-         <br></br>
+        <br></br>
+        <br></br>
 
-        <div className="wrapper">
-        {renderForm}
-        <br></br>
-        {renderForm2}
-        <br></br>
-        <br></br>
-        <br></br>
-        </div>
-        <div>
-        <button className="btn btn-success button" onClick={this.handleClickCars}>
-          {buttonText}
-        </button>
-
-         </div>
+        <div className="wrapperNew">
+          {currentlyVisibleForm}
+          <br></br>
+          <br></br>
+          </div>
+          {renderForm2}        
+          <div>
+          <br></br>
+          <br></br>
+            <button className="btn btn-success button" onClick={this.handleClickCars}> {buttonText}</button>
+          </div>      
       </React.Fragment>
     );
   }

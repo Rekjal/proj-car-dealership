@@ -1,27 +1,49 @@
 body {
   background-color: #eee;
 }
-.wrapper {
-  display: grid;
-  /* grid-template-columns:1fr 1fr 1fr;*/
-  grid-template-columns: repeat(4, 1fr);
+.wrapperNew {
+  display: grid;  
+ /* grid-template-columns: repeat(4, 1fr);  */
+ grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-column-gap:0.1em;
   grid-row-gap:1em;
+  margin: 1em; 
+  grid-area: item-4;
+  overflow: hidden; 
+  
+  /* position:absolute; */
+
+  /* top:0px;
+  bottom:0px;
+  width:100%;
+  height:100%; */
+
+/* Using flexbox */
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; */
+  /* justify-content: center;
+  align-content: stretch;
+  align-items: center; */
+/*----*/
+
+/* color: #333;
+background: #419be0; */
+
+  /* grid-template-columns:1fr 1fr 1fr;*/
   /* grid-gap: 2em; */
   /* grid-auto-rows:100px; */
-  /*
-  grid-column-gap:1em;
-  grid-row-gap:1em;
-  */
+  /* grid-column-gap:1em;
+  grid-row-gap:1em; */
   /* grid-auto-rows: minmax(100px, auto); */
   /* padding:1em; */
-  margin: 1em;
+  
 }
 
 .wrapper > img {
-  image-rendering: left;
+  /* image-rendering: left;
   padding-bottom: 0%;
-  margin-bottom: 0%;
+  margin-bottom: 0%; */
 }
 
 .wrapper > div {
@@ -34,7 +56,7 @@ body {
 
 .KegCard {
   width: 260px;
-  height: 445px;   /* 285 is ideal   */
+  height: 310px;   /* 285 is ideal   */
   background-color: #fff;
   /* border: 2px lightgrey solid; */
   /* border-radius: 5px; */
@@ -132,7 +154,7 @@ h3 {
 
 .black {
   color: #5c5c5c;
-  align-self: flex-end;
+  /* align-self: flex-end; */
   text-align: center;
 }
 
@@ -142,11 +164,11 @@ h3 {
 }
 
 .divAlign1 {
-  flex: 1;
+  /* flex: 1; */
 }
 
 .divAlign1 p {
-  flex: 1;
+  /* flex: 1; */
 }
 
 .buttonWidth {
@@ -154,13 +176,13 @@ h3 {
 }
 
 .buttonWidth button {
-  flex: 1;
+  /* flex: 1; */
   min-width: 100%;
   font-family: "Indie Flower", cursive;
   font-weight: 700;
   display: block;
   width: 100%;
-  align-items: flex-end;
+  /* align-items: flex-end; */
 }
 
 .buttonPrimary {
@@ -183,41 +205,41 @@ h3 {
 }
 
 .kegDetail {
-  font-family: "Indie Flower", cursive;
+  /* font-family: "Indie Flower", cursive;
   text-align: left;
   font-weight: 700;
   display: flex;
-  flex-direction: column;
-  width: 700px;
-  height: 400px;
-  border: 2px lightgrey solid;
+  /* flex-direction: column; */
+  /* width: 700px;
+  height: 900px; */
+  /* border: 2px lightgrey solid; */
   border-radius: 5px;
-  box-shadow: 3px 3px 3px 0 lightgrey;
-  margin: 10px auto 10 auto;
-  align-items: left;
+  /* box-shadow: 3px 3px 3px 0 lightgrey; */
+  margin: 10px auto 10 auto; 
+  /* align-items: left;
   justify-content: center;
-  padding: 0, 0, 20px, 0;
+  padding: 0, 0, 20px, 0; */
 }
 
 .kegDetailButton {
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row; */
   margin: 0px 0px 0px 0px;
   margin-right: 10px;
   margin-left: 10px;
-  justify-content: space-between; /* combined with "flex-basis: 40%;" in child creates gap between buttons */
+  /* justify-content: space-between; combined with "flex-basis: 40%;" in child creates gap between buttons */
 }
 
 .kegDetailButton button {
-  flex-basis: 40%;
+  /* flex-basis: 40%; */
 }
 
 .reUsableKegForm {
   font-family: "Indie Flower", cursive;
   text-align: left;
   font-weight: 700;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   width: 700px;
   height: 400px;
   border: 2px lightgrey solid;
@@ -227,14 +249,14 @@ h3 {
   align-items: left;
   justify-content: center;
   padding: 5px;
-  display: flex;
+  /* display: flex; */
   align-items: left;
   justify-content: stretch;
 }
 
 .reUsableKegForm input {
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row; */
   margin: 0px 0px 0px 0px;
   margin-right: 10px;
   margin-top: 10px;
@@ -244,8 +266,8 @@ h3 {
 }
 
 .reUsableKegForm button {
-  flex-basis: 40%;
-  flex: 1;
+  /* flex-basis: 40%; */
+  /* flex: 1; */
   margin-top: 10px;
   margin-left: 10px;
 }
@@ -276,4 +298,22 @@ h3 {
   overflow: hidden;
   margin: 0;
     background-color: #f5f5f5;
+}
+
+.image {
+  max-height: 500px;
+  /* height: calc(50vh - 100px); */
+  /* height: calc(50vh - 100px); */
+  width: auto;
+  margin: 0 auto; /* it centers any block level element*/
+  image-orientation: auto;
+}
+.enlarged {
+  max-height: none;
+}
+
+.centerScreen {
+ display: flex;
+  justify-content: center;
+  width: 1050px; 
 }

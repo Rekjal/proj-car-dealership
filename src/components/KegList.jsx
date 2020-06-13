@@ -1,7 +1,7 @@
 import React from "react";
 import Keg from "./Keg";
 import PropTypes from "prop-types";
-import "./Keg.css";
+import "./Car.css";
 
 function KegList(props) {
   const { onKegSelectPintSale, onKegSelection } = props;

@@ -1,10 +1,10 @@
-import firebase from "./../firebase";
+import firebase from "../firebase";
 import React, { Component, useEffect, useState } from "react";
 import Like from "./Like";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import "../../node_modules/font-awesome/css/font-awesome.min.css";
+import PropTypes from "prop-types";
 
 import {
   useFirestore,
@@ -15,7 +15,7 @@ import {
 } from "react-redux-firebase"; //"isLoaded" is authrization related
 import { useSelector } from "react-redux";
 
-function FetchDataFromFS(props) {
+function RenderCar(props) {
   //const FetchDataFromFS = (props) => {
   const myStyledComponentStyles = {
     backgroundColor: "#ecf0f1",
@@ -40,9 +40,9 @@ function FetchDataFromFS(props) {
       {props.carList.map(indiCounter => {
         return (
           <React.Fragment>
-            <div className="KegCard vroomColor">
-              {/* <div className="divAlign" onClick={() => whenKegClicked(id)}> */}
-              <div className="divAlign">
+            {/* <div className="KegCard vroomColor"> */}
+              <div onClick={() => props.onCarSelection(indiCounter.id)}>
+              {/* <div className="divAlign"> */}
                 <p>
                   <img
                     style={myStyledComponentStyles}
@@ -67,7 +67,7 @@ function FetchDataFromFS(props) {
                     <FontAwesomeIcon icon={faHome} />
                   </div> */}
               </div>
-            </div>
+            {/* </div> */}
           </React.Fragment>
         );
       })}
@@ -84,8 +84,8 @@ function FetchDataFromFS(props) {
 //   );
 // }
 
-FetchDataFromFS.propTypes = {
-  //   onTicketSelection: PropTypes.func,
+RenderCar.propTypes = {
+  carList: PropTypes.array.isRequired,
 };
 
-export default FetchDataFromFS;
+export default RenderCar;

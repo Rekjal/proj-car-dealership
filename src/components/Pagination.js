@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash'; //lodash is optimized version of JS library called underscrore
+import PropTypes from "prop-types";
 
 const Pagination = (props) => {
     const { itemsCount, pageSize, currentPage, onPageChange} = props;
@@ -16,9 +17,17 @@ const Pagination = (props) => {
               <a className="page-link" onClick={() => onPageChange(page)}>{page}</a></li>
           ))}
         </ul>
-      </nav> 
-      
-    );
+      </nav>      
+    );    
 }
+
+Pagination.propTypes = {
+  itemsCount: PropTypes.number.isRequired,
+  pageSize: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+};
+
+
  
 export default Pagination;

@@ -1,7 +1,7 @@
 import React from "react";
 import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
-import "./Keg.css";
+import "./Car.css";
 
 function EditKegForm(props) {
   const { keg } = props;
