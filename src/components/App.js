@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"; //rou
 import Form from "./Form";
 import FooterPage from "./FooterPage";
 import "./Car.css";
+import LazyLoad from "./LazyLoad";
+import CarDetail from "./CarDetail";
+
 
 function App() {
   return (

@@ -258,7 +258,7 @@ class CarControl extends React.Component {
           <div>
           <br></br>
           <br></br>
-            <button className="btn btn-success button" onClick={this.handleClickCars}> {buttonText}</button>
+            {/* <button className="btn btn-success button" onClick={this.handleClickCars}> {buttonText}</button> */}
           </div>      
       </React.Fragment>
     );

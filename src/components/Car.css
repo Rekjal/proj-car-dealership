@@ -4,10 +4,9 @@ body {
 .wrapperNew {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-column-gap: 0.1em;
-  grid-row-gap: 1em;
+  grid-column-gap: 1em;
+  grid-row-gap: 3em;
   margin: 1em;
-  grid-area: item-4;
   overflow: hidden;
   margin-top: 40px;
   padding-top: 30px;
@@ -331,25 +330,16 @@ h3 {
 }
 
 .footer {
-/*  
+  display: grid;
   position: absolute;
-  width: 100vw; */
-  /* display: "inline-block"; */
-  flex-basis: 100%;
-    flex-grow: 1;
-
-  /* width: 100vw; */
-  /* display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  width: 100vw; */
-  /* display: "inline-block";
-  width: 100vw; */
-  /* height: "100px"; */
+  width: 100vw; 
+  grid-column-start: 0; 
+  grid-column-end: 0; 
+  grid-template-columns: 1fr 0px;
+  left: 0px;   /* //effective */
+  padding-left: 0px;
   background-color: rgb(0, 0, 0);
   color: rgb(153, 157, 163);
-  /* width: auto;
-    height: auto; */
 }
 
 .footerApp {
@@ -388,5 +378,5 @@ body > footer {
 }
 
 .lotsOfMargin {
-  margin-bottom: 140px;
+  margin-bottom: 205px;
 }

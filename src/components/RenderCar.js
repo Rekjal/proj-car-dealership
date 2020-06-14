@@ -59,10 +59,10 @@ function RenderCar(props) {
                   {indiCounter.Trim} | {indiCounter.Miles.toLocaleString()}{" "}
                   miles
                 </p>
-                <p className="moreWeight">
+                <p className="moreWeight lotsOfMargin">
                   ${indiCounter.Price.toLocaleString()}
                 </p>
-                <Like liked={true} />
+                {/* <Like liked={true} /> */}
                 {/* <div>
                     <FontAwesomeIcon icon={faHome} />
                   </div> */}
