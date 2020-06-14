@@ -1,5 +1,7 @@
 import React from "react";
 import firebase from "firebase/app"; //auth related -  give us access to firebase.auth() methods
+import "./Car.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 function Signin() {
   function doSignUp(event) {
@@ -35,31 +37,50 @@ function Signin() {
   }
 
   function doSignOut() {
-    firebase.auth().signOut().then(function() { //We use the firebase.auth().signOut() method, which also returns a promise.
-      console.log("Successfully signed out!");
-    }).catch(function(error) {
-      console.log(error.message);
-    });
+    firebase
+      .auth()
+      .signOut()
+      .then(function () {
+        //We use the firebase.auth().signOut() method, which also returns a promise.
+        console.log("Successfully signed out!");
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
   }
 
   return (
     <React.Fragment>
-      <h1>Sign up</h1>
-      <form onSubmit={doSignUp}>
-        <input type="text" name="email" placeholder="email" />
-        <input type="password" name="password" placeholder="Password" />
-        <button type="submit">Sign up</button>
-      </form>
+      <div className="signIn">
+        <br></br><br></br><br></br><br></br>
+{/* 
+        <form className="form-inline">
+  <div className="form-group mb-2">
+    <label for="staticEmail2" className="sr-only">Email</label>
+    <input type="text" readonly className="form-control-plaintext" id="staticEmail2" value="email@example.com">
+  </div>
+  <div className="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" className="sr-only">Password</label>
+    <input type="password" className="form-control" id="inputPassword2" placeholder="Password">
+  </div>
+  <button type="submit" className="btn btn-primary mb-2">Confirm identity</button>
+</form> */}
 
-      <h1>Sign In</h1>
-      <form onSubmit={doSignIn}>
-        <input type="text" name="signinEmail" placeholder="email" />
-        <input type="password" name="signinPassword" placeholder="Password" />
-        <button type="submit">Sign in</button>
-      </form>
 
-      <h1>Sign Out</h1>
-      <button onClick={doSignOut}>Sign out</button>
+        <form onSubmit={doSignUp}>
+          <input type="text" name="email" placeholder="email" />
+          <input type="password" name="password" placeholder="Password" />
+          <button className="btn btn-info btn-sm" type="submit">Sign up</button>
+        </form>
+        <br></br><br></br>
+        <form onSubmit={doSignIn}>
+          <input type="text" name="signinEmail" placeholder="email" />
+          <input type="password" name="signinPassword" placeholder="Password" />
+          <button class="btn btn-info btn-sm" type="submit">Sign in</button>
+        </form>
+        <br></br><br></br>
+        <button className="btn btn-danger lotsOfMargin" onClick={doSignOut}>Sign out</button>
+      </div>
     </React.Fragment>
   );
 }

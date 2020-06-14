@@ -2,15 +2,16 @@ body {
   background-color: #eee;
 }
 .wrapperNew {
-  display: grid;  
- /* grid-template-columns: repeat(4, 1fr);  */
- grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-column-gap:0.1em;
-  grid-row-gap:1em;
-  margin: 1em; 
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-column-gap: 0.1em;
+  grid-row-gap: 1em;
+  margin: 1em;
   grid-area: item-4;
-  overflow: hidden; 
-  
+  overflow: hidden;
+  margin-top: 40px;
+  padding-top: 30px;
+
   /* position:absolute; */
 
   /* top:0px;
@@ -18,16 +19,16 @@ body {
   width:100%;
   height:100%; */
 
-/* Using flexbox */
+  /* Using flexbox */
   /* display: flex;
   flex-direction: row;
   flex-wrap: nowrap; */
   /* justify-content: center;
   align-content: stretch;
   align-items: center; */
-/*----*/
+  /*----*/
 
-/* color: #333;
+  /* color: #333;
 background: #419be0; */
 
   /* grid-template-columns:1fr 1fr 1fr;*/
@@ -37,13 +38,12 @@ background: #419be0; */
   grid-row-gap:1em; */
   /* grid-auto-rows: minmax(100px, auto); */
   /* padding:1em; */
-  
 }
 
 .wrapper > img {
-  /* image-rendering: left;
+  image-rendering: left;
   padding-bottom: 0%;
-  margin-bottom: 0%; */
+  margin-bottom: 0%;
 }
 
 .wrapper > div {
@@ -56,7 +56,7 @@ background: #419be0; */
 
 .KegCard {
   width: 260px;
-  height: 310px;   /* 285 is ideal   */
+  height: 310px; /* 285 is ideal   */
   background-color: #fff;
   /* border: 2px lightgrey solid; */
   /* border-radius: 5px; */
@@ -97,7 +97,7 @@ background: #419be0; */
 }
 
 .vroomColor {
-  font-family: "Calibre-Semibold";
+  font-family: "Segoe UI";
   font-size: 16px;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -106,7 +106,6 @@ background: #419be0; */
 
 .coralColor {
   color: coral;
-  font-family: "Indie Flower", cursive;
   font-weight: 400;
   /* margin: auto;
   padding: auto; */
@@ -114,28 +113,34 @@ background: #419be0; */
 }
 
 p {
-  font-family: "Calibre-Semibold";
+  font-family: "Segoe UI";
   font-weight: 600;
   /* padding-left: 12px; */
   margin-top: 1px;
   padding-bottom: 3px;
   margin-bottom: 3px;
- 
 }
 
 .moreWeight {
-  font-family: "Calibre-Semibold";
- font-weight: 600;
- padding-left: 8px;
+  font-family: "Segoe UI";
+  font-weight: 600;
+  padding-left: 8px;
 }
+
+.signIn {
+  font-family: "Segoe UI";
+  font-weight: 100;
+  padding-left: 8px;
+}
+
 .lessWeight {
-   font-family: "Calibre-Semibold";
+  font-family: "Segoe UI";
   font-weight: 100;
   padding-left: 8px;
 }
 
 h1 {
-  font-family: "Indie Flower", cursive;
+  font-family: "Segoe UI";
   color: #5c5c5c;
   font-weight: 700;
   text-align: center;
@@ -144,7 +149,7 @@ h1 {
 }
 
 h3 {
-  font-family: "Indie Flower", cursive;
+  font-family: "Segoe UI";
   color: #5c5c5c;
   font-weight: 3000;
   text-align: center;
@@ -178,7 +183,7 @@ h3 {
 .buttonWidth button {
   /* flex: 1; */
   min-width: 100%;
-  font-family: "Indie Flower", cursive;
+  font-family: "Segoe UI";
   font-weight: 700;
   display: block;
   width: 100%;
@@ -186,7 +191,7 @@ h3 {
 }
 
 .buttonPrimary {
-  font-family: "Indie Flower", cursive;
+  font-family: "Segoe UI";
   font-weight: 3000;
   align-items: center;
   margin-left: 45%; /*USEFUL: Aligns button to centre  */
@@ -215,7 +220,7 @@ h3 {
   /* border: 2px lightgrey solid; */
   border-radius: 5px;
   /* box-shadow: 3px 3px 3px 0 lightgrey; */
-  margin: 10px auto 10 auto; 
+  margin: 10px auto 10 auto;
   /* align-items: left;
   justify-content: center;
   padding: 0, 0, 20px, 0; */
@@ -235,7 +240,7 @@ h3 {
 }
 
 .reUsableKegForm {
-  font-family: "Indie Flower", cursive;
+  font-family: "Segoe UI";
   text-align: left;
   font-weight: 700;
   /* display: flex; */
@@ -273,7 +278,7 @@ h3 {
 }
 
 .reUsableKegForm h3 {
-  font-family: "Indie Flower", cursive;
+  font-family: "Segoe UI";
   color: coral;
   font-weight: 700;
   margin: auto;
@@ -297,24 +302,91 @@ h3 {
   width: 104.4px;
   overflow: hidden;
   margin: 0;
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .image {
-  max-height: 400px;
+  max-height: 480px;
   /* height: calc(50vh - 100px); 
    height: calc(50vh - 100px); */
-  width: 600px;  /* window is fixed so increating this does not have an effect */
+  width: 640px; /* window is fixed so increating this does not have an effect */
   /* margin: 0 auto;  */
   image-orientation: auto;
-  
 }
 .enlarged {
   max-height: none;
 }
 
 .centerScreen {
- display: flex;
+  display: flex;
   justify-content: center;
-  width: 1050; 
+  width: 1050;
+  /* background-color: black; */
+}
+
+.navBarRed {
+  font-family: "Segoe UI";
+  /* font-weight: 100; */
+  color: #e7131a;
+}
+
+.footer {
+/*  
+  position: absolute;
+  width: 100vw; */
+  /* display: "inline-block"; */
+  flex-basis: 100%;
+    flex-grow: 1;
+
+  /* width: 100vw; */
+  /* display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100vw; */
+  /* display: "inline-block";
+  width: 100vw; */
+  /* height: "100px"; */
+  background-color: rgb(0, 0, 0);
+  color: rgb(153, 157, 163);
+  /* width: auto;
+    height: auto; */
+}
+
+.footerApp {
+  position:absolute; 
+}
+.footerAlt {
+  /* position:absolute; */
+  /* background-color:#d6d7da; */
+  font-size: 14px;
+  padding-right: 0px;
+  padding-left: 0px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: white;
+}
+/* 
+body > footer {
+  margin: 0px;
+  padding: 0px;
+  min-width: 100%;
+  max-width: 100%;
+  background: #ffffff;
+  height: auto;
+} */
+
+.padding {
+  padding: 10px;
+  /* margin: 20px; */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.lotsOfMargin {
+  margin-bottom: 140px;
 }

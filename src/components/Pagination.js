@@ -9,7 +9,7 @@ const Pagination = (props) => {
     const pages = _.range(1, pagesCount+1); //range() generates an array with starting number 1
 
     return (
-       
+     
         <nav aria-label="Page navigation example">
         <ul className="pagination">
           {pages.map(page => (
@@ -17,7 +17,8 @@ const Pagination = (props) => {
               <a className="page-link" onClick={() => onPageChange(page)}>{page}</a></li>
           ))}
         </ul>
-      </nav>      
+      </nav>   
+      
     );    
 }
 

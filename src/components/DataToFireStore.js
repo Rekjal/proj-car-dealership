@@ -6,7 +6,7 @@ import { v4 } from "uuid";
 
 const db = firebase.firestore();
 
-function LoadDataToFS() {
+function DataToFireStore() {
   const firestore = useFirestore();
   const [fileUrl, setFileURLs] = React.useState([]);
   const [uuID, setUuID] = React.useState();
@@ -15,7 +15,7 @@ function LoadDataToFS() {
   const [enteredText, setEnteredText] = useState("");
   // const [movies, setMovies] = React.useState([]);
 
-  
+  var countOfImageUploadFields = 5;
     
 
   const addImageURL = (toAdd) => {
@@ -44,8 +44,8 @@ function LoadDataToFS() {
 
   const printValues = (e) => {
     // e.preventDefault();
-    console.log("SALIM!!!: Inside printValues");
-    console.log(imgURLs, users);
+    // console.log("SALIM!!!: Inside printValues");
+    // console.log(imgURLs, users);
   };
 
   function addNonImageFieldToFirestore(id) {
@@ -58,8 +58,8 @@ function LoadDataToFS() {
     const fileRef = storageRef.child(file.name);
     await fileRef.put(file);
     addImageURL(await fileRef.getDownloadURL());
-    console.log("SALIM!!!!:imgURLs ");
-    console.log(imgURLs);
+    // console.log("SALIM!!!!:imgURLs ");
+    // console.log(imgURLs);
     printValues();
   };
 
@@ -74,8 +74,9 @@ function LoadDataToFS() {
     const Trim = e.target.Trim.value;
     const Price = e.target.Price.value;
     const Year = e.target.Year.value;
+    const Features = e.target.Features.value;
 
-    if (!carMake || !fileUrl || !carModel || Miles || Trim || Price || Year ) {
+    if (!carMake || !fileUrl || !carModel || Miles || Trim || Price || Year || Features ) {
       return;
     }
     await db.collection("car").doc(uuIDTicket.id).set({
@@ -87,11 +88,10 @@ function LoadDataToFS() {
       Price: Price,
       Trim: Trim,
       Year: Year,
-
-
+      Features: Features,
     });
 
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < 8; i++) {
       document.getElementsByClassName("clearFileFieldOnSubmit")[i].value = "";
     }
 
@@ -114,15 +114,24 @@ function LoadDataToFS() {
 
  
 
-  return (
-    
-    
+  return (   
     <>
- 
 
-    
+
+
       <form onSubmit={onSubmit}>
         <br></br>
+
+        {/* {countOfImageUploadFields.map(page => (
+          <input
+          type="file"
+          className="clearFileFieldOnSubmit"
+          onChange={onFileChange}
+        />
+        <br></br> <br></br>
+          ))} */}
+
+
         <input
           type="file"
           className="clearFileFieldOnSubmit"
@@ -194,14 +203,20 @@ function LoadDataToFS() {
           name="Price"
           placeholder="Price"
         />
-        <br></br> <br></br>         
+        <br></br> <br></br>     
+        <input
+          type="text"
+          className="clearFileFieldOnSubmit"
+          name="Features"
+          placeholder="Features (Comma separated)"
+        />
+        <br></br> <br></br>     
 
-        <button className="buttonPrimary btn btn-primary" >Submit</button>{" "}
+        <button className="btn btn-primary btn-lg btn-block" >Submit</button>{" "}
         <br></br> <br></br>
-      </form>
-     
+      </form>     
     </>
   );
 }
 
-export default LoadDataToFS;
+export default DataToFireStore;

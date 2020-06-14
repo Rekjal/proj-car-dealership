@@ -5,15 +5,14 @@ import EditKegForm from "./EditKegForm";
 import "./Car.css";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import * as a from "./../actions";
-import GetDataInRealTime from "./GetDataInRealTime";
+import * as a from "../actions";
 import Pagination from "./Pagination";
 import { useSelector } from "react-redux"; //hook allows us to extract data from a Redux store.
 // import { useFirestoreConnect, isLoaded } from "react-redux-firebase"; //hook allows us to listen for changes to Firestore without using an HOC in a class component.
-import firebase from "./../firebase";
+import firebase from "../firebase";
 import React, { Component, useEffect, useState } from "react";
-import { paginate } from "./../utils/paginate";
-import LoadDataToFS from "./LoadDataToFS";
+import { paginate } from "../utils/paginate";
+import DataToFireStore from "./DataToFireStore";
 import RenderCar from "./RenderCar";
 import LazyLoad from "./LazyLoad";
 import CarDetail from "./CarDetail";
@@ -29,7 +28,7 @@ import {
   isLoaded,
 } from "react-redux-firebase"; //"isLoaded" is authrization related
 
-class KegControl extends React.Component {
+class CarControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -134,7 +133,7 @@ class KegControl extends React.Component {
   };
 
   handlePageChange = (page) => {
-    console.log(page);
+    // console.log(page);
     this.setState({ currentPage: page });
   };
 
@@ -165,8 +164,8 @@ class KegControl extends React.Component {
     let renderForm = null;
     let renderForm2 = null;
     let buttonText = null;
-    console.log("SALIM!!: INSIDE CONTROL - STATE masterCarList is ");
-    console.log(JSON.stringify(this.state.masterCarList));
+    // console.log("SALIM!!: INSIDE CONTROL - STATE masterCarList is ");
+    // console.log(JSON.stringify(this.state.masterCarList));
     const paginationCarArray = paginate(
       this.state.masterCarList,
       this.state.currentPage,
@@ -175,9 +174,9 @@ class KegControl extends React.Component {
     console.log(
       "SALIM: INSIDE KEGCONTROL:::THINGS GOING TO PGAINATION FUCNTIONA ARE "
     );
-    console.log(this.state.pageNumber);
-    console.log(this.state.pageSize);
-    console.log(paginationCarArray);
+    // console.log(this.state.pageNumber);
+    // console.log(this.state.pageSize);
+    // console.log(paginationCarArray);
 
     if (this.props.edit) {
       currentlyVisibleForm = (
@@ -188,7 +187,7 @@ class KegControl extends React.Component {
       );
       buttonText = "Return to Car List";
     } else if (this.state.selectedCar != null) {
-      // console.log("I AM HEREREERERERER - (this.props.selectedCar != null)  ");
+      console.log("I AM HEREREERERERER - (this.props.selectedCar != null)  ");
       currentlyVisibleForm = (
         <LazyLoad
           selectedCar={this.state.selectedCar}
@@ -197,18 +196,18 @@ class KegControl extends React.Component {
         />
       );
       renderForm2 =   <CarDetail selectedCar={this.state.selectedCar} />
-      buttonText = "Return to Keg List";
+      buttonText = "Return to Car Listing";
     } else if (this.props.formToRender) {
       currentlyVisibleForm = (
         <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
       );
-      buttonText = "Return to Keg List";
+      buttonText = "Return to Car Listing";
     } else {
-      console.log("I AM HEREREERERERER - else  ");
+      // console.log("I AM HEREREERERERER - else  ");
 
       if (this.state.currentVisibleForm) {
         buttonText = "Go to Listing Page";
-        currentlyVisibleForm = <LoadDataToFS />;
+        currentlyVisibleForm = <DataToFireStore />;
       } else {
         buttonText = "Go to Data Upload Page";
         currentlyVisibleForm = (
@@ -218,8 +217,7 @@ class KegControl extends React.Component {
           />
         );
         renderForm2 = (
-          <Pagination
-            itemsCount={this.state.masterCarList.length}
+          <Pagination className = "pagination" itemsCount={this.state.masterCarList.length}
             pageSize={this.state.pageSize}
             currentPage={this.state.currentPage}
             onPageChange={this.handlePageChange}
@@ -249,10 +247,9 @@ class KegControl extends React.Component {
             </li>
           ))}
         </ul> */}
-        <br></br>
-        <br></br>
 
         <div className="wrapperNew">
+                 
           {currentlyVisibleForm}
           <br></br>
           <br></br>
@@ -268,7 +265,7 @@ class KegControl extends React.Component {
   }
 }
 
-KegControl.propTypes = {
+CarControl.propTypes = {
   masterKegList: PropTypes.object,
   formToRender: PropTypes.bool,
   edit: PropTypes.bool,
@@ -284,6 +281,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-KegControl = connect(mapStateToProps)(KegControl);
+CarControl = connect(mapStateToProps)(CarControl);
 
-export default KegControl;
+export default CarControl;

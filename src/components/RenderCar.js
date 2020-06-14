@@ -19,7 +19,7 @@ function RenderCar(props) {
   //const FetchDataFromFS = (props) => {
   const myStyledComponentStyles = {
     backgroundColor: "#ecf0f1",
-    fontFamily: "Calibre-Semibold",
+    fontFamily: "Segoe UI",
     // paddingTop: "5px",
     // marginTop: "1px",
     // border: "1px",
@@ -32,15 +32,15 @@ function RenderCar(props) {
     height: "auto",
   };
 
-  console.log("SALIM: Inside FETCHDATAFROMFS: carList IS ");
-  console.log(props.carList);
+  // console.log("SALIM: Inside FETCHDATAFROMFS: carList IS ");
+  // console.log(props.carList);
 
   return (
     <React.Fragment>
       {props.carList.map(indiCounter => {
         return (
           <React.Fragment>
-            {/* <div className="KegCard vroomColor"> */}
+            <div className="KegCard vroomColor">
               <div onClick={() => props.onCarSelection(indiCounter.id)}>
               {/* <div className="divAlign"> */}
                 <p>
@@ -67,7 +67,7 @@ function RenderCar(props) {
                     <FontAwesomeIcon icon={faHome} />
                   </div> */}
               </div>
-            {/* </div> */}
+            </div>
           </React.Fragment>
         );
       })}
