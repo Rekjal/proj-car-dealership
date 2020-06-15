@@ -76,7 +76,7 @@ function Signin() {
         <form onSubmit={doSignIn}>
           <input type="text" name="signinEmail" placeholder="email" />
           <input type="password" name="signinPassword" placeholder="Password" />
-          <button class="btn btn-info btn-sm" type="submit">Sign in</button>
+          <button className="btn btn-info btn-sm" type="submit">Sign in</button>
         </form>
         <br></br><br></br>
         <button className="btn btn-danger lotsOfMargin" onClick={doSignOut}>Sign out</button>

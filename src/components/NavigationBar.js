@@ -74,10 +74,10 @@ class Navigation extends React.Component {
             <NavItem path="/upload" name="Upload Data" />
             
               <NavDropdown name="Contact">
-                <a className="dropdown-item" className="navBarRed" > <IoMdCall /> (315) 450 3124</a>
-                <a className="dropdown-item" href="/email"> <AiOutlineMail /> Email</a>
+                <a className="dropdown-item navBarRed"><IoMdCall/> (800) 450 3124</a>
+                <a className="dropdown-item" href="/email"><AiOutlineMail/> Email</a>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/Form">Formno</a>
+                {/* <a className="dropdown-item" href="/Form">Formno</a> */}
               </NavDropdown>
             
           </ul>
