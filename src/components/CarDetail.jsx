@@ -20,7 +20,7 @@ function CarDetail(props) {
 
   return (
     <React.Fragment>
-      <div className="kegDetail coralColor">
+      <div className="kegDetail2 coralColor ">
       <table className = "table">
       <tbody>
         <tr>
@@ -41,12 +41,12 @@ function CarDetail(props) {
            ))}
         </div>
       
-       <div className="vroomColor morePadding">Clean Auto History:<img className ="tempImage" src={require('./carfax_logo2.png')} />
+       <div className="vroomColor morePadding">Clean Auto History:<img className ="tempImage" src={require('./../img/carfax_logo2.png')} />
         This vehicle has a clean history and is free of accidents as reported by CARFAX.     
         <a href={carFaxURL} target="_blank"> See the report</a> 
         </div>
        <div>
-          <a className="vroomColor morePadding" href={safetyRecallURL} target="_blank"  >Check for safety recalls</a> 
+          <a className="vroomColor morePadding" href={safetyRecallURL} target="_blank"  >Check for safety recalls</a>  
           </div>      
         <div className="horizontalLine"></div>
         <h3 className="alignLeft">Features</h3>
@@ -55,7 +55,6 @@ function CarDetail(props) {
             <div className="col-md-4">{feature}</div>
           ))}
         </div>
-        >
       </div>
     </React.Fragment>
   );

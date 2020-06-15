@@ -54,7 +54,7 @@ function LazyLoad(props) {
 
   return (
     <React.Fragment>
-      <div className="centerScreen">
+      <div className="centerScreen wrapperNew2">
         {/* <div> */}
         <Wrapper>
           <Slider

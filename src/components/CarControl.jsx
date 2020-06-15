@@ -16,6 +16,8 @@ import DataToFireStore from "./DataToFireStore";
 import RenderCar from "./RenderCar";
 import LazyLoad from "./LazyLoad";
 import CarDetail from "./CarDetail";
+import AboutPage from "./AboutPage";
+import "bootstrap/dist/css/bootstrap.css";
 
 // import {getMovies} from "./movieObjectComp";
 // import index from "./index";
@@ -195,7 +197,7 @@ class CarControl extends React.Component {
           onClickingEdit={this.handleEditClick}
         />
       );
-      renderForm2 =   <CarDetail selectedCar={this.state.selectedCar} />
+      renderForm2 = <CarDetail selectedCar={this.state.selectedCar} />
       buttonText = "Return to Car Listing";
     } else if (this.props.formToRender) {
       currentlyVisibleForm = (
@@ -211,55 +213,36 @@ class CarControl extends React.Component {
       } else {
         buttonText = "Go to Data Upload Page";
         currentlyVisibleForm = (
-          <RenderCar
+          <RenderCar className="wrapperNew"
             carList={paginationCarArray}
-            onCarSelection={this.handleChangingSelectedCar }
+            onCarSelection={this.handleChangingSelectedCar}
           />
         );
         renderForm2 = (
-          <Pagination className = "pagination" itemsCount={this.state.masterCarList.length}
+          <Pagination className="pagination" itemsCount={this.state.masterCarList.length}
             pageSize={this.state.pageSize}
             currentPage={this.state.currentPage}
             onPageChange={this.handlePageChange}
           />
         );
       }
-
-      // currentlyVisibleForm = (
-      //   <LoadDataToFS
-      //     className="grid-container flex-item card"
-      //     kegList={this.props.masterKegList}
-      //     onKegSelectPintSale={this.handlePintSale}
-      //     onKegSelection={this.handleChangingSelectedKeg}
-      //   />
-      // ); //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
-
-      // buttonText = "Add New Keg";
     }
 
     return (
       <React.Fragment>
-        {/* <ul>
-          {this.state.masterCarList.map((car) => (
-            <li key={car.id}>
-              {car.id} - {car.Make} - {car.Model} - {car.ImageURLs[0].value}{" "}
-              -IMAGE-2!!!!!: {car.ImageURLs[1].value}
-            </li>
-          ))}
-        </ul> */}
-
-        <div className="wrapperNew">
-                 
-          {currentlyVisibleForm}
-          <br></br>
-          <br></br>
+        <div className="container">
+          <div className="wrapperNew">
+            {currentlyVisibleForm}
+            <br></br>
+            <br></br>
           </div>
-          {renderForm2}        
+          {renderForm2}
           <div>
-          <br></br>
-          <br></br>
+            <br></br>
+            <br></br>
             {/* <button className="btn btn-success button" onClick={this.handleClickCars}> {buttonText}</button> */}
-          </div>      
+          </div>
+          </div>
       </React.Fragment>
     );
   }

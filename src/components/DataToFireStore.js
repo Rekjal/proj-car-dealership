@@ -16,7 +16,7 @@ function DataToFireStore() {
   // const [movies, setMovies] = React.useState([]);
 
   var countOfImageUploadFields = 5;
-    
+
 
   const addImageURL = (toAdd) => {
     setImageURLs([
@@ -76,7 +76,7 @@ function DataToFireStore() {
     const Year = e.target.Year.value;
     const Features = e.target.Features.value;
 
-    if (!carMake || !fileUrl || !carModel || Miles || Trim || Price || Year || Features ) {
+    if (!carMake || !fileUrl || !carModel || Miles || Trim || Price || Year || Features) {
       return;
     }
     await db.collection("car").doc(uuIDTicket.id).set({
@@ -112,17 +112,18 @@ function DataToFireStore() {
   //     setUuID('');
   //   }, []);
 
- 
-
-  return (   
-    <>
 
 
+  return (
+    <React.Fragment>
 
-      <form onSubmit={onSubmit}>
-        <br></br>
+      <div className="jumbotron">
 
-        {/* {countOfImageUploadFields.map(page => (
+
+        <form onSubmit={onSubmit}>
+          <br></br>
+
+          {/* {countOfImageUploadFields.map(page => (
           <input
           type="file"
           className="clearFileFieldOnSubmit"
@@ -132,90 +133,91 @@ function DataToFireStore() {
           ))} */}
 
 
-        <input
-          type="file"
-          className="clearFileFieldOnSubmit"
-          onChange={onFileChange}
-        />
-        <br></br> <br></br>
-        <input
-          type="file"
-          className="clearFileFieldOnSubmit"
-          onChange={onFileChange}
-        />
-        <br></br> <br></br>
-        <input
-          type="file"
-          className="clearFileFieldOnSubmit"
-          onChange={onFileChange}
-        />
-        <br></br> <br></br>
-        <input
-          type="file"
-          className="clearFileFieldOnSubmit"
-          onChange={onFileChange}
-        />
-        <br></br> <br></br>
-        <input
-          type="file"
-          className="clearFileFieldOnSubmit"
-          onChange={onFileChange}
-        />
-        <br></br> <br></br>
-        <input
-          type="text"
-          className="clearFileFieldOnSubmit"
-          name="carMake"
-          placeholder="Make"
-        />
-        <br></br> <br></br>
-        <input
-          type="text"
-          className="clearFileFieldOnSubmit"
-          name="carModel"
-          placeholder="Model"
-        />
-        <br></br> <br></br>
-        <input
-          type="text"
-          className="clearFileFieldOnSubmit"
-          name="Year"
-          placeholder="Year"
-        />
-        <br></br> <br></br>
-        <input
-          type="text"
-          className="clearFileFieldOnSubmit"
-          name="Trim"
-          placeholder="Trim"
-        />
-        <br></br> <br></br>
-        <input
-          type="text"
-          className="clearFileFieldOnSubmit"
-          name="Miles"
-          placeholder="Miles"
-        />
-        <br></br> <br></br>
-        <input
-          type="text"
-          className="clearFileFieldOnSubmit"
-          name="Price"
-          placeholder="Price"
-        />
-        <br></br> <br></br>     
-        <input
-          type="text"
-          className="clearFileFieldOnSubmit"
-          name="Features"
-          placeholder="Features (Comma separated)"
-        />
-        <br></br> <br></br>     
+          <input
+            type="file"
+            className="clearFileFieldOnSubmit"
+            onChange={onFileChange}
+          />
+          <br></br> <br></br>
+          <input
+            type="file"
+            className="clearFileFieldOnSubmit"
+            onChange={onFileChange}
+          />
+          <br></br> <br></br>
+          <input
+            type="file"
+            className="clearFileFieldOnSubmit"
+            onChange={onFileChange}
+          />
+          <br></br> <br></br>
+          <input
+            type="file"
+            className="clearFileFieldOnSubmit"
+            onChange={onFileChange}
+          />
+          <br></br> <br></br>
+          <input
+            type="file"
+            className="clearFileFieldOnSubmit"
+            onChange={onFileChange}
+          />
+          <br></br> <br></br>
+          <input
+            type="text"
+            className="clearFileFieldOnSubmit"
+            name="carMake"
+            placeholder="Make"
+          />
+          <br></br> <br></br>
+          <input
+            type="text"
+            className="clearFileFieldOnSubmit"
+            name="carModel"
+            placeholder="Model"
+          />
+          <br></br> <br></br>
+          <input
+            type="text"
+            className="clearFileFieldOnSubmit"
+            name="Year"
+            placeholder="Year"
+          />
+          <br></br> <br></br>
+          <input
+            type="text"
+            className="clearFileFieldOnSubmit"
+            name="Trim"
+            placeholder="Trim"
+          />
+          <br></br> <br></br>
+          <input
+            type="text"
+            className="clearFileFieldOnSubmit"
+            name="Miles"
+            placeholder="Miles"
+          />
+          <br></br> <br></br>
+          <input
+            type="text"
+            className="clearFileFieldOnSubmit"
+            name="Price"
+            placeholder="Price"
+          />
+          <br></br> <br></br>
+          <input
+            type="text"
+            className="clearFileFieldOnSubmit"
+            name="Features"
+            placeholder="Features (Comma separated)"
+          />
+          <br></br> <br></br>
 
-        <button className="btn btn-primary btn-lg btn-block" >Submit</button>{" "}
-        <br></br> <br></br>
-      </form>     
-    </>
+          <button className="btn btn-primary btn-lg btn-block" >Submit</button>{" "}
+          <br></br> <br></br>
+        </form>
+      </div>
+    </React.Fragment>
   );
 }
 

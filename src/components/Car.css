@@ -1,7 +1,88 @@
 body {
   background-color: #eee;
 }
+
+.wrapperNew2 {
+  display: grid; 
+ 
+  /* grid-template-columns: repeat(0, minmax(0, 1fr));*/
+  grid-template-columns: max-content;
+  /* grid-column-gap: 1em; */
+  grid-row-gap: 3em;
+  margin: 1em;
+  overflow: hidden;
+  margin-top: 40px;
+  padding-top: 30px;
+}
+
+
 .wrapperNew {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* grid-template-columns: max-content; */
+  grid-column-gap: 1em;
+  grid-row-gap: 3em;
+  margin: 1em;
+  overflow: hidden;
+  margin-top: 40px;
+  padding-top: 30px;
+}
+
+.row {
+  align-self: start;
+  display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.KegCard {  
+  display: grid;
+  /* grid-template-columns: 200px repeat(auto-fill, 100px) 200px; */
+  /* grid-template-columns: repeat(4, minmax(0, 1fr)); */
+  /* grid-area: 4 / 1 / 2 / 6; */
+   grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  overflow: hidden;
+  /* width: 400px;
+  height: 310px;     */
+  /* 285 is ideal   */
+  background-color: #fff;
+  position: relative;
+  width:100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  /* border: 2px lightgrey solid; */
+  /* border-radius: 5px; */
+  /* box-shadow: 3px 3px 3px 0 lightgrey; */
+  /* margin-bottom: 40px;
+  margin-top: 40px;*/
+  /* justify-content: space-between; */
+  /* row-gap: 20px;
+  grid-column-gap: 20px;
+	grid-row-gap: 20px; */
+}
+
+.vroomColor {
+  font-family: "Segoe UI";
+  font-size: 16px;
+  color: #5c5c5c;
+  white-space: wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 2;
+  word-wrap: break-word;
+}
+
+.container {
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.KegCard2 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-column-gap: 1em;
@@ -10,37 +91,19 @@ body {
   overflow: hidden;
   margin-top: 40px;
   padding-top: 30px;
+  /* width: 400px;
+  height: 310px;     */
+  /* 285 is ideal   */
+  background-color: #fff;
 
-  /* position:absolute; */
-
-  /* top:0px;
-  bottom:0px;
-  width:100%;
-  height:100%; */
-
-  /* Using flexbox */
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap; */
-  /* justify-content: center;
-  align-content: stretch;
-  align-items: center; */
-  /*----*/
-
-  /* color: #333;
-background: #419be0; */
-
-  /* grid-template-columns:1fr 1fr 1fr;*/
-  /* grid-gap: 2em; */
-  /* grid-auto-rows:100px; */
-  /* grid-column-gap:1em;
-  grid-row-gap:1em; */
-  /* grid-auto-rows: minmax(100px, auto); */
-  /* padding:1em; */
+  padding: 5px, 5px, 5px, 5px; 
+  margin: 5px, 5px, 5px, 5px; 
 }
 
+
 .wrapper > img {
-  image-rendering: left;
+  image-rendering: center;
+  width: 400px;
   padding-bottom: 0%;
   margin-bottom: 0%;
 }
@@ -53,21 +116,7 @@ background: #419be0; */
   /* background: #ddd; */
 }
 
-.KegCard {
-  width: 260px;
-  height: 310px; /* 285 is ideal   */
-  background-color: #fff;
-  /* border: 2px lightgrey solid; */
-  /* border-radius: 5px; */
-  /* box-shadow: 3px 3px 3px 0 lightgrey; */
-  /* margin-bottom: 40px;
-  margin-top: 40px;
-  padding: 40px, 40px, 40px, 40px; */
-  /* justify-content: space-between; */
-  /* row-gap: 20px;
-  grid-column-gap: 20px;
-	grid-row-gap: 20px; */
-}
+
 
 #card-list {
   /* display: flex;
@@ -95,15 +144,7 @@ background: #419be0; */
 	grid-row-gap: 20px; */
 }
 
-.vroomColor {
-  font-family: "Segoe UI";
-  font-size: 16px;
-  color: #5c5c5c;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  line-height: 2;
-}
+
 
 .horizontalLine {
   width: auto;
@@ -364,10 +405,10 @@ h3 {
 }
 
 .image {
-  max-height: 480px;
+  /* max-height: 480px; */
   /* height: calc(50vh - 100px); 
    height: calc(50vh - 100px); */
-  width: 640px; /* window is fixed so increating this does not have an effect */
+  /* width: 640px; window is fixed so increating this does not have an effect */
   /* margin: 0 auto;  */
   image-orientation: auto;
 }
@@ -446,25 +487,25 @@ body > footer {
 }
 
 a:link {
-  color: red;
+  color: blue;
   background-color: transparent;
   text-decoration: none;
 }
 
 a:visited {
-  color: pink;
+  color: green;
   background-color: transparent;
   text-decoration: none;
 }
 
 a:hover {
-  color: green;
+  color: red;
   background-color: transparent;
   text-decoration: underline;
 }
 
 a:active {
-  color: yellow;
+  color: pink;
   background-color: transparent;
   text-decoration: underline;
 }

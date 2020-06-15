@@ -51,22 +51,9 @@ function Signin() {
 
   return (
     <React.Fragment>
+
       <div className="signIn">
         <br></br><br></br><br></br><br></br>
-{/* 
-        <form className="form-inline">
-  <div className="form-group mb-2">
-    <label for="staticEmail2" className="sr-only">Email</label>
-    <input type="text" readonly className="form-control-plaintext" id="staticEmail2" value="email@example.com">
-  </div>
-  <div className="form-group mx-sm-3 mb-2">
-    <label for="inputPassword2" className="sr-only">Password</label>
-    <input type="password" className="form-control" id="inputPassword2" placeholder="Password">
-  </div>
-  <button type="submit" className="btn btn-primary mb-2">Confirm identity</button>
-</form> */}
-
-
         <form onSubmit={doSignUp}>
           <input type="text" name="email" placeholder="email" />
           <input type="password" name="password" placeholder="Password" />
@@ -81,7 +68,9 @@ function Signin() {
         <br></br><br></br>
         <button className="btn btn-danger lotsOfMargin" onClick={doSignOut}>Sign out</button>
       </div>
-    </React.Fragment>
+
+      {/* </div> */}
+    </React.Fragment >
   );
 }
 

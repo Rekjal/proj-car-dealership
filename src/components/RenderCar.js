@@ -5,6 +5,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../node_modules/font-awesome/css/font-awesome.min.css";
 import PropTypes from "prop-types";
+import "bootstrap/dist/css/bootstrap.css";
 
 import {
   useFirestore,
@@ -18,11 +19,9 @@ import { useSelector } from "react-redux";
 function RenderCar(props) {
   //const FetchDataFromFS = (props) => {
   const myStyledComponentStyles = {
+  
     backgroundColor: "#ecf0f1",
     fontFamily: "Segoe UI",
-    // paddingTop: "5px",
-    // marginTop: "1px",
-    // border: "1px",
     paddingLeft: "0px",
     paddingRight: "0px",
     paddingBottom: "0px",
@@ -30,6 +29,7 @@ function RenderCar(props) {
     marginLeft: "0px",
     maxWidth: "100%",
     height: "auto",
+    // wdth: "100%",
   };
 
   // console.log("SALIM: Inside FETCHDATAFROMFS: carList IS ");
@@ -40,18 +40,17 @@ function RenderCar(props) {
       {props.carList.map(indiCounter => {
         return (
           <React.Fragment>
-            <div className="KegCard vroomColor">
+               <div className="container row col-lg-3 col-md-6 col-xs-12 thumbnail">
+           
+              {/* <div className="thumbnail">  */}
               <div onClick={() => props.onCarSelection(indiCounter.id)}>
-              {/* <div className="divAlign"> */}
-                <p>
+                {/* <div className="divAlign"> */}               
                   <img
                     style={myStyledComponentStyles}
-                    src={indiCounter.ImageURLs[0].value}
-                    width="370"
-                    height="200"
+                    src={indiCounter.ImageURLs[0].value}                    
                     alt="First image"
                   ></img>
-                </p>
+             
                 <p className="moreWeight">
                   {indiCounter.Year} {indiCounter.Make} {indiCounter.Model}
                 </p>
@@ -59,7 +58,7 @@ function RenderCar(props) {
                   {indiCounter.Trim} | {indiCounter.Miles.toLocaleString()}{" "}
                   miles
                 </p>
-                <p className="moreWeight lotsOfMargin">
+                <p className="moreWeight">
                   ${indiCounter.Price.toLocaleString()}
                 </p>
                 {/* <Like liked={true} /> */}
@@ -67,7 +66,10 @@ function RenderCar(props) {
                     <FontAwesomeIcon icon={faHome} />
                   </div> */}
               </div>
+              {/* </div> */}
             </div>
+            {/* </div> */}
+           
           </React.Fragment>
         );
       })}

@@ -9,7 +9,7 @@ import FooterPage from "./FooterPage";
 import "./Car.css";
 import LazyLoad from "./LazyLoad";
 import CarDetail from "./CarDetail";
-
+import AboutPage from "./AboutPage";
 
 function App() {
   return (
@@ -17,16 +17,15 @@ function App() {
       <div className="container">
         <NavigationBar /> {/* Navbar is outside of <Switch> component */}
         <main className="container">
-          <Switch>
-            {" "}
-            {/* switch component is like a conditional - it will render only one of the routes contained inside */}
-            <Route path="/signin">
-              {" "}
-              {/* the path should always begin with a / (just like an actual path in a URL). */}
+          <Switch> {/* switch component is like a conditional - it will render only one of the routes contained inside */}
+            <Route path="/signin"> {/* the path should always begin with a / (just like an actual path in a URL). */}
               <Signin />
             </Route>
             <Route path="/upload">
               <DataToFireStore />
+            </Route>
+            <Route path="/about">
+              <AboutPage />
             </Route>
             <Route path="/">
               <KegControl />
@@ -36,7 +35,7 @@ function App() {
             </Route>
           </Switch>
         </main>
-          <FooterPage />
+        <FooterPage />
       </div>
     </Router>
 
