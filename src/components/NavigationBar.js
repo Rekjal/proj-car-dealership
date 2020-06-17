@@ -1,8 +1,7 @@
-import React, { Component, useScript } from "react";
+import React from "react";
 import "./Car.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../node_modules/font-awesome/css/font-awesome.min.css";
 import { IoMdCall } from 'react-icons/io';
 import { AiOutlineMail } from 'react-icons/ai';
@@ -78,11 +77,11 @@ class Navigation extends React.Component {
           <ul className="navbar-nav mr-auto">
             <NavItem path="/" name="Home" />
             <NavItem path="/signin" name="Sign In" />
-            <NavItem path="/upload" name="Upload Data" />
+            <NavItem path="/createcar" name="Upload Data" />
             <NavItem path="/about" name="About" />
 
             <NavDropdown name="Contact">
-              <a className="dropdown-item"><IoMdCall /> <span className= "navBarRed">(800) 450 3124</span></a>
+              <button className="dropdown-item"><IoMdCall /> <span className= "navBarRed">(800) 450 3124</span> </button>
               <a className="dropdown-item" href="/email"><AiOutlineMail /> Email</a>
               <div className="dropdown-divider"></div>
               {/* <a className="dropdown-item" href="/Form">Formno</a> */}

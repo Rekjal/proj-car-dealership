@@ -1,14 +1,12 @@
 import React from "react";
-import KegControl from "./CarControl";
+import CarControl from "./CarControl";
 import NavigationBar from "./NavigationBar";
-import DataToFireStore from "./DataToFireStore";
+import CreateCar from "./CreateCar";
 import Signin from "./Signin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"; //router related
 import Form from "./Form";
 import FooterPage from "./FooterPage";
 import "./Car.css";
-import LazyLoad from "./LazyLoad";
-import CarDetail from "./CarDetail";
 import AboutPage from "./AboutPage";
 
 function App() {
@@ -21,14 +19,14 @@ function App() {
             <Route path="/signin"> {/* the path should always begin with a / (just like an actual path in a URL). */}
               <Signin />
             </Route>
-            <Route path="/upload">
-              <DataToFireStore />
+            <Route path="/createcar">
+              <CreateCar />
             </Route>
             <Route path="/about">
               <AboutPage />
             </Route>
             <Route path="/">
-              <KegControl />
+              <CarControl />
             </Route>
             <Route path="/email">
               <Form />

@@ -1,0 +1,30 @@
+DTNATELE-13584	EB	2.0	-	APIM	-	SPIKE	-	research,	compare,	and	select	from	competing	API	Management	products	Major	-	Major	loss	of	function.	OPEN
+DTNATELE-13586	G:	EB	2.0	-	APIM	-	Develop	GraphQL	Table	Scan	API	Manager	Service	Major	-	Major	loss	of	function.	OPEN
+DTNATELE-13587	EB	2.0	-	APIM	-	Configure	and	Launch	APIM	Developer	Portal	Major	-	Major	loss	of	function.	OPEN
+DTNATELE-14755	EB	2.0	-	APIM	-	Develop	COBA	Claims	API	Manager	Service	Major	-	Major	loss	of	function.	OPEN
+DTNATELE-15827	(F-12206)	Implement/Configure/Test	APIM	Contract	for	the	new	"Express	WriteUp	Fault	API"	Service	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	OPEN
+DTNATELE-15872	(F-12206)	Spike:	Discovery:	Identify	and	Implement	Appropriate	API	Access	Token	Authorization	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	OPEN
+DTNATELE-15902	(F-12206)	Submit	Firewall	Rule	Configuration	for	APIM	to	HBase	for	Port	443	for	Express	WriteUp	Fault	API	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	IN	PROGRESS
+DTNATELE-15870	(F-12206)	Clean	up	existing	APIM	Configs	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	DEV	COMPLETE
+DTNATELE-14735	EB	2.0	-	Develop	COBA	Claims	API	Service	Major	-	Major	loss	of	function.	OPEN
+DTNATELE-14740	EB	2.0	-	Develop	COBA	Claims	API	Service	Data	Contracts	Major	-	Major	loss	of	function.	OPEN
+DTNATELE-14749	EB	2.0	-	Develop	COBA	Claims	API	Service	CI/CD	Pipelines	Major	-	Major	loss	of	function.	OPEN
+DTNATELE-15821	(F-12207)	Spike:	Implement	Functionapp	and	appserviceplan	into	Current	Network	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	OPEN
+DTNATELE-15822	(F-12207)	Spike:	Update	EB	VM's	to	Host	Docker	Daemon	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	OPEN
+DTNATELE-15825	(F-12207)	Configure	CI/CD	Pipeline	for	Express	WriteUp	Fault	API	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	OPEN
+DTNATELE-15826	(F-12207)	Launch	New	Micro	Service	in	Bitbucket	for	Express	WriteUp	Fault	API	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	OPEN
+DTNATELE-15871	(F-12207)	SPIKE:	Acquire	and	Implement	Signed	SSL	Certificates	for	New	Full	MTLS	Authentication	Between	APIM	and	"Express	WriteUp	Fault	API"	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	OPEN
+DTNATELE-16015	(F-12207)	Spike:	Configure	Release	Pipeline	for	EB	2.0	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	OPEN
+DTNATELE-16016	(F-12207)	Spike:	Configure	ACR	Access	for	EB	2.0	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	OPEN
+DTNATELE-13581	EB	2.0	-	Develop	API	Domain	Architecture	Diagram(s)	Major	-	Major	loss	of	function.	IN	PROGRESS
+DTNATELE-13582	OSOLETE:	EB	2.0	-	SPIKE	-	Collect	all	GraphQL	Table	Scan	API	Service	Requirements	Major	-	Major	loss	of	function.	OBSOLETE
+DTNATELE-14715	OBSOLETE:	EB	2.0	-	Develop	GraphQL	Table	Scan	API	Service	Major	-	Major	loss	of	function.	OBSOLETE
+DTNATELE-14726	OBSOLETE:	EB	2.0	-	Develop	GraphQL	Table	Scan	API	Service	Contracts	Major	-	Major	loss	of	function.	OBSOLETE
+DTNATELE-14746	EB	2.0	-	Develop	GraphQL	Table	Scan	CI/CD	Pipelines	Major	-	Major	loss	of	function.	OBSOLETE
+DTNATELE-15817	(F-12207)	SPIKE:	Discovery	-	How	to	Implement	Functionapp	with	appserviceplan	into	Current	Network	Minor	-	Minor	loss	of	function,	or	other	problem	where	easy	workaround	is	present.	REOPEN
+DTNATELE-14717	EB	2.0	-	Develop	and	Implement	a	common	HBase	connectivity	module	Major	-	Major	loss	of	function.	DEV	COMPLETE
+DTNATELE-14718	EB	2.0	-	Develop	and	Implement	a	common	logging	module	Major	-	Major	loss	of	function.	DEV	COMPLETE
+DTNATELE-14719	EB	2.0	-	SPIKE	-	Collect	all	logging	module	requirements	Major	-	Major	loss	of	function.	DEV	COMPLETE
+DTNATELE-14723	EB	2.0	-	Develop	Architecture	Diagrams	Major	-	Major	loss	of	function.	DEV	COMPLETE
+DTNATELE-14731	EB	2.0	-	SPIKE	-	Collect	all	COBA	Claims	API	Service	Requirements	Major	-	Major	loss	of	function.	DEV	COMPLETE
+

@@ -14,8 +14,8 @@ import "bootstrap/dist/css/bootstrap.css";
 const store = createStore(rootReducer);
 
 store.subscribe(() => {
-  console.log("Inside INDEX.JS: subscriber returned state values are .. ");
-  console.log(store.getState());
+  // console.log("Inside INDEX.JS: subscriber returned state values are .. ");
+  // console.log(store.getState());
 });
 
 const rrfProps = {

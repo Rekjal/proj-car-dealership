@@ -12,9 +12,9 @@ const FooterPage = () => {
               <p className="footerAlt">
                 © 2020 CONSOLIDATED CARS. ALL RIGHTS RESERVED.
               </p>
-              <a href="https://www.facebook.com/dealeron/" target="_blank" className = "padding fa fa-facebook"></a> 
-              <a href="https://twitter.com/DealerOn" target="_blank" className = "padding fa fa-twitter"></a>
-              <a href="https://www.instagram.com/dealeron_inc/" target="_blank" className = "padding fa fa-instagram"></a>
+              <a href="https://www.facebook.com/dealeron/" target="_blank" rel="noopener noreferrer" className = "padding fa fa-facebook"> </a> 
+              <a href="https://twitter.com/DealerOn" target="_blank" rel="noopener noreferrer" className = "padding fa fa-twitter"> </a>
+              <a href="https://www.instagram.com/dealeron_inc/" target="_blank" rel="noopener noreferrer" className = "padding fa fa-instagram"> </a>
             </MDBCol>
             <MDBCol md="3">
               <h6 className="title">About</h6>

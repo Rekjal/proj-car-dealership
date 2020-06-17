@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "../../node_modules/font-awesome/css/font-awesome.min.css";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
 import 'font-awesome/css/font-awesome.min.css';
 
 class Like extends Component {
