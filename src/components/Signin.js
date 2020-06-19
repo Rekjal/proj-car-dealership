@@ -1,6 +1,7 @@
 import React from "react";
 import firebase from "firebase/app"; //auth related -  give us access to firebase.auth() methods
 import "./Car.css";
+import {withRouter, Ridirect} from "react-router";
 import "bootstrap/dist/css/bootstrap.css";
 
 function Signin() {
@@ -8,13 +9,10 @@ function Signin() {
     event.preventDefault(); //prevent the default behavior of submitting a form (a page reload).
     const email = event.target.email.value;
     const password = event.target.password.value;
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(function () {
-        //createUserWithEmailAndPassword() returns a promise, which means we can attach then to it.
-        console.log("successfully signed up!");
-      })
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
+      //createUserWithEmailAndPassword() returns a promise, which means we can attach then to it.
+      console.log("successfully signed up!");
+    })
       .catch(function (error) {
         console.log(error.message);
       });
@@ -30,9 +28,10 @@ function Signin() {
       .then(function () {
         //we are using the firebase.auth().signInWithEmailAndPassword() method.
         console.log("Successfully signed in!");
+        // <Ridirect to="/"/>
       })
-      .catch(function (error) {
-        console.log(error.message);
+      .catch(function (err) {
+        console.log(err.message);
       });
   }
 
@@ -44,14 +43,13 @@ function Signin() {
         //We use the firebase.auth().signOut() method, which also returns a promise.
         console.log("Successfully signed out!");
       })
-      .catch(function (error) {
-        console.log(error.message);
+      .catch(function (e) {
+        console.log(e.message);
       });
   }
 
   return (
     <React.Fragment>
-
       <div className="signIn">
         <br></br><br></br><br></br><br></br>
         <form onSubmit={doSignUp}>

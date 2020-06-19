@@ -73,6 +73,7 @@ function LazyLoad(props) {
           // grid-template-columns={500}
 
           >
+           
             <Page>
               <img src={selectedCar.ImageURLs[0].value} alt = "" className="image"></img>
             </Page>
