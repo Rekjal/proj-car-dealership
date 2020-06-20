@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   position: absolute;
   top: 50%;
   z-index: 1;
+ 
 }
 
 .slides {
@@ -24,15 +25,15 @@ const Wrapper = styled.div`
   z-index:1;
 }
 
-.slides .slick-prev {
-  left: 5%;
-  color: blue; //effective
-    font-size: 22px; //effective
-}
+// .slides .slick-prev {
+//   left: 5%;
+//   color: blue; //effective
+//     font-size: 22px; //effective
+// }
 
-.slides .slick-next {
-  right: 5%;
-}
+// .slides .slick-next {
+//   right: 5%;
+// }
 
 .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
   color: yellow;
@@ -41,17 +42,13 @@ const Wrapper = styled.div`
   // background: transparent;
 }
 
-.slides .slick-prev,
-.slides .slick-next {
-  position: absolute;
-  top: 50%;
-  z-index:1;
-  color: blue; //effective
-    font-size: 40px; //effective
+.slick-dots li.slick-active button:before {
+  color:blue !important;
 }
 
-.slick-dots li.slick-active button:before {
-  color:orange !important;
+
+.slides .slick-prev, .slick-next {
+  width: 60px;
 }
 
 
@@ -74,6 +71,7 @@ function LazyLoad(props) {
       <div className="">
         {/* <div> */}
 
+        <div className="thumbnail">
         <Wrapper>
           <Slider
             speed={500}
@@ -104,6 +102,7 @@ function LazyLoad(props) {
           </Slider>
         </Wrapper>
         {/* <br></br><br></br>  <br></br><br></br>  <br></br><br></br> */}
+      </div>
       </div>
     </React.Fragment>
   );

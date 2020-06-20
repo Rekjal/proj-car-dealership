@@ -6,18 +6,16 @@ import "bootstrap/dist/css/bootstrap.css";
 import "react-redux-firebase"; //"isLoaded" is authrization related
 
 function RenderCar(props) {
-  //const FetchDataFromFS = (props) => {
   const myStyledComponentStyles = {
-
     backgroundColor: "#ecf0f1",
     fontFamily: "Segoe UI",
-    paddingLeft: "0px",
     paddingRight: "0px",
     paddingBottom: "0px",
     marginBottom: "0px",
     marginLeft: "0px",
     maxWidth: "100%",
     height: "auto",
+    paddingLeft: "4px",
     // wdth: "100%",
   };
 
@@ -30,8 +28,10 @@ function RenderCar(props) {
         {props.carList.map(indiCounter => {
           return (
             // <React.Fragment>
-              <div key = {indiCounter.id} className="container row col-lg-3 col-md-6 col-xs-12 thumbnail">
-                <div onClick={() => props.onCarSelection(indiCounter.id)}>
+            <div key={indiCounter.id} className="container row col-lg-4 col-sm-6">
+              <div onClick={() => props.onCarSelection(indiCounter.id)}>
+                
+                <div className="thumbnail">
                   <img style={myStyledComponentStyles} src={indiCounter.ImageURLs[0].value} alt=""></img>
                   <p className="moreWeight">
                     {indiCounter.Year} {indiCounter.Make} {indiCounter.Model}
@@ -45,13 +45,14 @@ function RenderCar(props) {
                   </p>
                 </div>
               </div>
+            </div>
 
 
             // </React.Fragment>
           );
         })}
       </div>
-   </React.Fragment>
+    </React.Fragment>
   );
   // If the tickets aren't loaded yet, our fragment will return a "Loading..." message.
 }

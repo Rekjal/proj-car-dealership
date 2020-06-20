@@ -2,6 +2,7 @@ import React from "react";
 
 function AboutPage() {
   return (<React.Fragment >
+    <div className = "container">
     < div className="jumbotron" >
       <button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
       <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">News</button>
@@ -13,10 +14,10 @@ function AboutPage() {
         <p>Home is where the heart is..</p>
       </div>
 
-      <div id="News" class="tabcontent">
+      {/* <div id="News" class="tabcontent">
         <h3>News</h3>
         <p>Some news this fine day!</p>
-      </div>
+      </div> */}
 
       <div id="Contact" class="tabcontent">
         <h3>Contact</h3>
@@ -27,6 +28,7 @@ function AboutPage() {
         <h3>About</h3>
         <p>Who we are and what we do.</p>
       </div>
+    </div>
     </div>
   </React.Fragment>
   );
