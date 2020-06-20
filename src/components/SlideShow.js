@@ -11,8 +11,7 @@ const Wrapper = styled.div`
 .slides .slick-next {
   position: absolute;
   top: 50%;
-  z-index: 1;
- 
+  z-index: 1; 
 }
 
 .slides {
@@ -36,7 +35,7 @@ const Wrapper = styled.div`
 // }
 
 .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
-  color: yellow;
+  // color: yellow;
   outline: none;
   font-size: 34px; //effective
   // background: transparent;
@@ -46,12 +45,9 @@ const Wrapper = styled.div`
   color:blue !important;
 }
 
-
 .slides .slick-prev, .slick-next {
   width: 60px;
 }
-
-
 `;
 
 
@@ -72,37 +68,37 @@ function LazyLoad(props) {
         {/* <div> */}
 
         <div className="thumbnail">
-        <Wrapper>
-          <Slider
-            speed={500}
-            slidesToShow={1}
-            slidesToScroll={1}
-            dots={true}
-          // className={"slides"}
+          <Wrapper>
+            <Slider
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+              dots={true}
+            // className={"slides"}
 
-          // grid-template-columns={500}
+            // grid-template-columns={500}
 
-          >
-           
-            <Page>
-              <img src={selectedCar.ImageURLs[0].value} alt = "" className="image"></img>
-            </Page>
-            <Page>
-              <img src={selectedCar.ImageURLs[1].value} alt = "" className="image"></img>
-            </Page>
-            <Page>
-              <img src={selectedCar.ImageURLs[2].value} alt = "" className="image"></img>
-            </Page>
-            <Page>
-              <img src={selectedCar.ImageURLs[3].value} alt = "" className="image"></img>
-            </Page>
-            <Page>
-              <img src={selectedCar.ImageURLs[4].value} alt = "" className="image"></img>
-            </Page>
-          </Slider>
-        </Wrapper>
-        {/* <br></br><br></br>  <br></br><br></br>  <br></br><br></br> */}
-      </div>
+            >
+
+              <Page>
+                <img src={selectedCar.ImageURLs[0].value} alt="" className="image"></img>
+              </Page>
+              <Page>
+                <img src={selectedCar.ImageURLs[1].value} alt="" className="image"></img>
+              </Page>
+              <Page>
+                <img src={selectedCar.ImageURLs[2].value} alt="" className="image"></img>
+              </Page>
+              <Page>
+                <img src={selectedCar.ImageURLs[3].value} alt="" className="image"></img>
+              </Page>
+              <Page>
+                <img src={selectedCar.ImageURLs[4].value} alt="" className="image"></img>
+              </Page>
+            </Slider>
+          </Wrapper>
+          {/* <br></br><br></br>  <br></br><br></br>  <br></br><br></br> */}
+        </div>
       </div>
     </React.Fragment>
   );
