@@ -28,7 +28,7 @@ function CarDetail(props) {
 
   return (
     <React.Fragment>
-      <div className="kegDetail2 coralColor ">
+      <div className="jumbotron coralColor ">
         <table className="table">
           <tbody>
             <tr>
@@ -65,7 +65,7 @@ function CarDetail(props) {
         </div>
       </div>
 
-      <div className="kegDetailButton coralColor centerEle">
+      <div className="kegDetailButton centerEle">
         <button className="btn btn-warning" onClick={onClickingEdit}>Update Car</button>
 
         {/* When "Update Keg" button is clicked, STATE of "editing" is mutated (set to TRUE) in KegControl.jsx */}

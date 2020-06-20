@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../../node_modules/font-awesome/css/font-awesome.min.css";
 import { IoMdCall } from 'react-icons/io';
 import { AiOutlineMail } from 'react-icons/ai';
+import Modal from "react-responsive-modal";
 
 // import {Navbar, Nav, NavDropdown, MenuItem} from 'react-bootstrap';
 
@@ -82,7 +83,7 @@ class Navigation extends React.Component {
 
             <NavDropdown name="Contact">
               <button className="dropdown-item"><IoMdCall /> <span className= "navBarRed">(800) 450 3124</span> </button>
-              <a className="dropdown-item" href="/email"><AiOutlineMail /> Email</a>
+              <button className="dropdown-item" href="/email"><AiOutlineMail /><span className= "navBarRed"> helpdesk@c-cars.com</span></button>
               <div className="dropdown-divider"></div>
               {/* <a className="dropdown-item" href="/Form">Formno</a> */}
             </NavDropdown>

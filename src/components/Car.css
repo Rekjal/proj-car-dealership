@@ -1,5 +1,5 @@
 body {
-  background-color: #eee;
+  background-color: white;
 }
 
 .App {
@@ -7,7 +7,7 @@ body {
 }
  
 .App-logo {
-  height: 40vmin;
+  /* height: 40vmin; */
 }
  
 
@@ -187,8 +187,8 @@ body {
   color: #5c5c5c;
   white-space: wrap;
   font-weight: 400;
-  /* margin: auto;
-  padding: auto; */
+  /* margin-top: 400px; */
+  padding: auto;
   text-align: left; /* critical */
 }
 
@@ -277,6 +277,10 @@ h3 {
   text-align: center;
 }
 
+.thumbnail {
+  background-color: rgb(233,236,239);
+}
+
 .divAlign {
   /* display: flex;
   flex-direction: column; */
@@ -354,16 +358,20 @@ h3 {
 }
 
 .kegDetailButton {
+  text-align:center;
+  margin: 0 auto;   /* (centers elements) */
+   display: block;  /* (starts on a new line and stretches out to the left and right as much as it can)  */
+   width: 20%; 
   /* display: flex; */
   /* flex-direction: row; */
-  margin: 0px 0px 0px 0px;
+  /* margin: 0px 0px 0px 0px; */
   /* margin-right: 10px;
   margin-left: 10px; */
   /* justify-content: space-between; combined with "flex-basis: 40%;" in child creates gap between buttons */
 }
 
 .blackBg {
-  background-color: black;
+  /* background-color: black; */
   /* width: 100%; */
 }
 
@@ -441,14 +449,25 @@ h3 {
 
 .centerEle {
   margin: auto;
-  width: 50%;
+  /* width: 50%; */
+  display: flex;
 }
 
+.backGround {
+ /* background-color: black; */
+/* padding-bottom: 200px; */
+
+}
 .image {
-  /* max-height: 480px; */
-  padding-top: 60px;
-  width: calc(100vh - 300px); 
-   height: calc(100vh -300px);
+  width: calc(100vh - 100px); 
+   height: calc(100vh -100px);
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;   /* critical -salim */
+   padding:auto;
+   padding-top: 60px;
+
    /* max-width: 100%;
    max-height: 100%; */
    /* display: block; *//*remove extra space below image */
@@ -561,3 +580,4 @@ a:active {
   text-align: left;
   padding-top: 10px;
 }
+

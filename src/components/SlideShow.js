@@ -18,6 +18,12 @@ const Wrapper = styled.div`
   position: relative;
 }
 
+.slick-prev:before, .slick-next:before {
+  font-size: 50px;
+  color: blue;
+  z-index:1;
+}
+
 .slides .slick-prev {
   left: 5%;
   color: blue; //effective
@@ -41,8 +47,14 @@ const Wrapper = styled.div`
   top: 50%;
   z-index:1;
   color: blue; //effective
-    font-size: 22px; //effective
+    font-size: 40px; //effective
 }
+
+.slick-dots li.slick-active button:before {
+  color:orange !important;
+}
+
+
 `;
 
 
@@ -59,7 +71,7 @@ function LazyLoad(props) {
     <React.Fragment>
       {/* <br></br><br></br>  <br></br><br></br>  <br></br><br></br>  <br></br><br></br> */}
 
-      <div className="App-logo thumbnail">
+      <div className="">
         {/* <div> */}
 
         <Wrapper>
@@ -91,7 +103,7 @@ function LazyLoad(props) {
             </Page>
           </Slider>
         </Wrapper>
-        <br></br><br></br>  <br></br><br></br>  <br></br><br></br>
+        {/* <br></br><br></br>  <br></br><br></br>  <br></br><br></br> */}
       </div>
     </React.Fragment>
   );
